@@ -1,0 +1,150 @@
+.owl-slider-wrap
+  overflow: hidden
+
+.owl-carousel
+  +fz(0)
+    
+  .owl-item
+    position: relative
+    min-height: 430px
+    max-height: 430px
+    background-color: $black
+    float: none
+    display: inline-block
+    vertical-align: top
+    width: 100%
+
+    img
+      position: absolute
+      display: block
+      top: 0
+      left: 0
+      object-fit: cover
+      min-height: 430px
+
+    .owl-item-text
+      padding-top: 135px
+      position: relative
+      z-index: 2
+
+      .title-slider
+        +fz(40px)
+        color: $white
+        line-height: 44px
+        text-transform: uppercase
+        font-weight: 600
+        letter-spacing: 1px
+        margin-bottom: 35px
+
+      .bttn
+        color: $white
+        letter-spacing: 0.5px
+        text-transform: uppercase
+
+        &:hover
+          background-color: $accentHover
+
+  .owl-nav
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    +fz(0)
+    max-width: 1280px
+    width: 100%
+    height: 36px
+
+    button
+      &.owl-next, &.owl-prev
+        display: block
+        width: 36px
+        height: 36px
+        background: rgba($white, .2)
+        +br(50%)
+        margin-top: -18px
+        transition: all 200ms ease
+        position: absolute
+
+
+      &.owl-next:hover, &.owl-prev:hover
+        background-color: $accent
+
+      &.owl-next:hover
+        &:before, &:after
+          background-color: $white
+
+      &.owl-prev:hover
+        &:before, &:after
+          background-color: $white
+
+      &.owl-next
+        right: 0
+
+        &:before, &:after
+          content: ''
+          display: block
+          position: absolute
+          width: 10px
+          height: 3px
+          background-color: $black
+          transition: all 200ms ease
+
+      &.owl-prev
+        left: 0
+
+        &:before, &:after
+          content: ''
+          display: block
+          position: absolute
+          width: 10px
+          height: 3px
+          background-color: $black
+          transition: all 200ms ease
+
+      &.owl-next
+        &:before
+          top: 14px
+          left: 14px
+          transform: rotate(45deg)
+
+        &:after
+          top: 20px
+          left: 14px
+          transform: rotate(135deg)
+
+      &.owl-prev
+        &:before
+          top: 14px
+          left: 13px
+          transform: rotate(-45deg)
+
+        &:after
+          top: 20px
+          left: 13px
+          transform: rotate(-135deg)
+
+
+  .owl-dots
+    position: absolute
+    left: 50%
+    bottom: 25px
+    transform: translateX(-50%)
+    max-width: 1170px
+    width: 100%
+    text-align: center
+
+
+    .owl-dot
+      display: inline-block
+      width: 8px
+      height: 8px
+      +br(50%)
+      background-color: rgba($white, .5)
+      margin: 0 3px
+
+    .active
+      background-color: $accent
+
+
+
+

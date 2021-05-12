@@ -1,0 +1,404 @@
+h1,h2,h3,h4,h5,h6
+	font-weight: 600
+
+h2
+	+fz(24px)
+	line-height: 1.33
+
+h3
+	+fz(18px)
+
+a
+	color: $black
+
+	&:hover,
+	&:active,
+	&:focus,	
+	&:visited
+		color: $black
+
+label
+	margin-bottom: 0
+		
+
+.title
+	margin-bottom: 35px
+	position: relative
+
+	&:before
+		content: ''
+		display: block
+		position: absolute
+		left: 0
+		bottom: -15px
+		width: 40px
+		height: 2px
+		+br(2px)
+		background-color: $accent
+
+	&_center
+		text-align: center
+
+		&:before
+			left: 50%
+			margin-left: -20px
+
+	&_main
+		+fz(24px)
+		line-height: 1.3
+
+	&_modal
+		+fz(24px)
+		margin-bottom: 50px
+
+		&-small
+			+fz(18px)
+			line-height: 1.2
+
+			&:before
+				display: none
+
+
+	&_block
+		+fz(18px)
+		font-weight: 600
+		line-height: 40px
+		margin-bottom: 15px
+
+
+.bttn
+	display: inline-block
+	font-family: $font
+	color: $white
+	+fz(16px)
+	font-weight: 600
+	height: 56px
+	line-height: 56px
+	text-align: center
+	background-color: $accent
+	padding: 0 25px
+	+br(9px)
+	user-select: none
+	white-space: nowrap
+	transition: all 200ms ease
+
+	&:active
+	&:focus,	
+	&:visited
+		color: $white
+
+
+	span
+		display: inline-block
+		color: $white
+		transition: color 200ms ease
+
+
+	.icon
+		+fz(22px)
+		margin-top: -4px
+		margin-right: 6px
+		vertical-align: middle
+
+
+	&:hover
+		color: $white
+		background-color: $accentHover
+
+		span
+			color: $white
+
+.bttn_small
+	display: inline-block
+	+fz(16px)
+	color: $black
+	height: 100%
+	line-height: normal
+	border: 1px solid $accent
+	padding: 8px 18px
+	+br(9px)
+	background-color: $white
+	transition: all 200ms ease
+
+	&:hover
+		color: $white
+		background-color: $accent
+
+		span
+			color: $white
+
+
+	.icon
+		color: $accentHover
+
+
+	span
+		+fz(14px)
+		color: $accentHover
+		font-weight: normal
+
+
+.bttn_send
+	+fz(16px)
+	height: 56px
+	line-height: 56px
+	text-transform: uppercase
+	letter-spacing: 1px
+	padding: 0 45px
+
+	&-small
+		height: 40px
+		line-height: 40px
+		text-transform: none
+		font-weight: normal
+		padding: 0 35px
+		letter-spacing: 0
+
+
+.bttn_coment
+	float: right
+	background-color: transparent
+
+.bttn_filter
+	display: none
+	width: 100%
+	height: 45px
+
+.bttn_disabled,
+.bttn_disabled:hover
+	background-color: $lightGray
+	cursor: default
+
+	span
+	 	color: $grayText
+
+
+.bttn_secondary
+	color: $black
+	background-color: $grayBg
+
+	&:active
+	&:focus,	
+	&:visited
+		color: $black
+
+	&:hover
+		color: $white
+		background-color: $accent
+
+
+
+// input
+
+.input
+	display: block
+	width: 100%
+	padding: 0 16px
+	+br(9px)
+	background-color: $white
+	border: solid 1px $lightGray
+	text-overflow: ellipsis
+	transition: border-color 200ms ease
+
+	&::placeholder
+		color: $black
+		opacity: 1
+		transition: opacity 150ms ease
+
+	&:focus
+		border-color: $accent
+
+		&::placeholder
+			opacity: 0
+
+
+.input_control
+	vertical-align: middle
+
+	span
+		+fz(22px)
+		color: $accent
+		transition: color 200ms ease
+
+	&:hover
+		span
+			color: $accentHover
+
+
+.input_count
+	display: inline-block
+	vertical-align: middle
+	max-width: 45px
+	height: 48px
+	margin: 0 5px
+	+fz(18px)
+	font-weight: bold
+	text-align: center
+
+
+// checkbox
+
+.input_checkbox
+	display: none
+
+.input_label-checkbox
+	display: inline-block
+	+fz(14px)
+	font-weight: normal
+	line-height: 1.4
+	color: $black
+	padding-left: 30px
+	position: relative
+	transition: all 200ms ease
+	cursor: pointer
+
+	&:before,
+	&:after
+		content: ''
+		display: block
+		position: absolute
+		transition: all 200ms ease
+
+	&:before
+		width: 18px
+		height: 18px
+		top: 0
+		left: 0
+		background-color: transparent
+		border: 2px solid $black
+		+br(3px)
+
+	&:after
+		width: 8px
+		height: 5px
+		top: 6px
+		left: 5px
+		border: 2px solid $black
+		border-top: none
+		border-right: none
+		transform: rotate(-45deg)
+		opacity: 0
+
+
+// radio
+
+
+
+.filter-parameter
+	color: $grayTextLight
+	text-shadow: none
+
+
+.input_checkbox:checked + .input_label-checkbox
+	text-shadow: 0 0 0.1px $black
+
+	.filter-parameter
+		text-shadow: none
+
+	&:before
+		background-color: $accent
+		border-color: $accent
+
+	&:after
+		opacity: 1
+		border-color: $white
+
+
+// select
+
+.input_select
+	+fz(14px)
+	color: $grayText
+	height: 40px
+	line-height: 40px
+	cursor: pointer
+	padding-left: 15px
+	padding-right: 25px
+	appearance: none
+	background-color: transparent
+	position: relative
+	z-index: 2
+
+.select-wrap
+	+br(9px)
+	background-color: $white
+	position: relative
+
+	&:before
+		content: ''
+		display: block
+		position: absolute
+		right: 14px
+		top: 50%
+		margin-top: -1px
+		border-style: solid
+		border-width: 5px 4px 0 4px
+		border-color: $black transparent transparent transparent
+		z-index: 0
+
+
+// input modal popup
+
+.input_modal
+	display: block
+	width: 100%
+	+fz(16px)
+	color: $black
+	padding: 8px 0
+	text-overflow: ellipsis
+	border-bottom: 2px solid $lightGray
+	transition: border-color 200ms ease
+
+	&:focus
+		border-color: $accent
+
+		+ .input_label-modal
+			top: -11px
+			+fz(12px)
+			color: $accent
+
+	&-error
+		border-bottom-color: $red
+
+
+.input_label-modal
+	display: block
+	position: absolute
+	top: 8px
+	left: 0
+	+fz(16px)
+	color: $black
+	font-weight: normal
+	pointer-events: none
+	transition: all 200ms ease
+
+	&_active
+		top: -11px
+		+fz(12px)
+		color: $accent
+
+
+.input_modal-textarea
+	height: auto
+	word-wrap: break-word
+	overflow: hidden
+	resize: none
+	outline: none
+	border: none
+	border-bottom: 2px solid $lightGray
+	line-height: 1.4
+
+
+// mfp title
+
+.mfp-title
+	+fz(13px)
+
+// specific
+
+.colored-bg
+	color: $white
+	background-color: $accentHover
+
+	.title
+		+fz(24px)

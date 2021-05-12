@@ -1,0 +1,40 @@
+.breadcrumbs-wrap
+	padding-bottom: 25px
+	.breadcrumbs
+		line-height: 1.3
+		margin-bottom: 0
+
+.breadcrumbs
+	line-height: 40px
+
+.breadcrumbs-list
+	+fz(0)
+
+.breadcrumbs-item
+	display: inline-block
+
+	.icon
+		+fz(14px)
+		color: $grayText
+		margin: 0 5px
+		vertical-align: middle
+
+	span
+		+fz(14px)
+		color: $grayText
+		vertical-align: middle
+
+.breadcrumbs-item-link
+	+fz(14px)
+	color: $accent
+	vertical-align: middle
+	transition: color 150ms ease
+
+	&:hover,
+	&:visited,
+	&:active
+		color: $accent
+
+	&:hover
+		color: $black
+

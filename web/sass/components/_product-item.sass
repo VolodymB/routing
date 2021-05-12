@@ -1,0 +1,178 @@
+.product-item
+	border: 1px solid $lightGray
+	+br(9px)
+	overflow: hidden
+	box-shadow: 0 8px 16px $lightGray
+	margin-bottom: 24px
+
+//image
+.product-image
+	text-align: center
+
+.product-image-link
+	display: block
+
+	img
+		display: inline-block
+		vertical-align: middle
+		width: 100%
+		max-height: 150px
+		object-fit: cover
+
+//text
+.product-text-wrap
+	background-color: $white
+	padding: 15px 16px 24px
+
+//title
+.product-name
+	margin-bottom: 15px
+	white-space: nowrap
+	overflow: hidden
+
+.product-title
+	margin-bottom: 4px
+
+.product-title-link
+	font-weight: 700
+
+.product-category
+	+fz(14px)
+	color: $grayText
+
+//price
+.product-price
+	display: table
+	width: 100%
+	height: 57px
+	padding: 8px
+	margin-bottom: 20px
+	background-color: $grayBg
+	+br(9px)
+	line-height: 1.3
+
+.product-price-sale
+	display: table-row
+	+fz(14px)
+
+.price-sale_old
+	display: table-cell
+	width: 50%
+	color: $grayTextLight
+	text-decoration: line-through
+
+.price-sale_date
+	display: table-cell
+	width: 50%
+	text-align: right
+	color: $red
+
+.product-price-active
+	display: table-row
+
+	span
+		display: table-cell
+		vertical-align: middle
+		+fz(18px)
+		font-weight: bold
+
+//buy btn
+.product-buy
+	+fz(0)
+	position: relative
+
+.product-add-fav
+	position: absolute
+	right: 13px
+	bottom: 14px
+
+	.icon
+		color: $accentHover
+		+fz(24px)
+
+		&:before
+			transition: all 100ms ease
+
+	&:hover
+		.icon
+			&:before
+				content: '\e90a'
+				color: $red
+
+	.is-active
+		&:before
+				content: '\e90a'
+				color: $red
+
+
+// list product item (in cart)
+
+.product-item-cart
+
+	.product-item
+		margin-bottom: 16px
+		background-color: $white
+
+	// img
+	.product-image
+		float: left
+		width: 30%
+
+	.product-image-link
+		img
+			max-height: 100%
+			height: 170px
+
+
+	// text
+	.product-text-wrap
+		display: table
+		float: left
+		width: 70%
+		padding: 24px 24px 19px
+		position: relative
+
+	.product-info-row
+		display: table-row
+
+	.product-name
+		display: table-cell
+		width: 52%
+		vertical-align: top
+		padding-right: 10px
+		margin-bottom: 0
+		white-space: normal
+		overflow: auto
+
+	.product-title
+		line-height: 1.15
+
+	.product-price
+		margin-bottom: 20px
+
+
+	.product-count
+		display: table-row
+
+
+.product-count-quantity
+	display: inline-block
+	+fz(0)
+	padding: 0 10px
+	+br(9px)
+	border: 1px solid $lightGray
+
+.delete-item
+	position: absolute
+	right: 24px
+	bottom: 33px
+	+fz(0)
+	color: $red
+
+	span
+		+fz(14px)
+		vertical-align: middle
+
+	.icon
+		+fz(22px)
+		margin-right: 5px

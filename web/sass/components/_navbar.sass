@@ -1,0 +1,230 @@
+.navbar-fix
+	display: block
+	position: fixed
+	top: -500px
+	left: 0
+	width: 100%
+	background-color: $white
+	z-index: 500
+	box-shadow: 0 0 12px rgba($black, .2)
+	transition: top 250ms ease
+	opacity: 0
+
+	&_show
+		opacity: 1
+		top: 0
+
+
+//navbar logo
+.navbar-logo
+	float: left
+	padding-top: 5px
+
+.navbar-logo-link
+	display: inline-block
+
+.navbar-logo-image
+	height: 47px
+
+//burger
+.burder
+	position: absolute
+
+//navbar nav
+.navbar-nav-wrap
+	float: left
+	margin-left: 60px
+	+fz(0)
+
+
+.navbar-nav-wrap_bg
+	&:before
+    content: ''
+    display: block
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: $white
+    box-shadow: 0 0 12px rgba($black, .2)
+    z-index: 1
+
+
+.navbar-nav-list
+	.is-active
+		.navbar-nav-link
+			color: $accent
+
+
+.navbar-nav-item
+	display: inline-block
+	padding: 10px 20px
+	text-align: center
+	vertical-align: middle
+	position: relative
+	cursor: pointer
+	
+	&:hover
+
+		.navbar-nav-link
+			color: $accent
+
+		>.navbar-nav-list-sub
+			visibility: visible
+			opacity: 1
+
+
+.navbar-nav-link
+	display: block
+	+fz(14px)
+	padding: 8px 0
+	text-transform: uppercase
+	letter-spacing: 1px
+	transition: color 200ms ease
+
+
+//_sub
+.navbar-nav-list-sub
+	visibility: hidden
+	opacity: 0
+	+fz(0)
+	position: absolute
+	top: 100%
+	left: 0
+	background-color: $grayBg
+	padding: 5px 0
+	text-align: left
+	min-width: 190px
+	box-shadow: 0 6px 12px rgba($black, .2)
+	transition: all 200ms ease
+
+
+.navbar-item_sub
+	display: block
+
+
+.navbar-link_sub
+	display: block
+	+fz(14px)
+	white-space: nowrap
+	padding: 10px 20px
+	transition: all 150ms ease
+
+	&:hover
+		color: $white
+		text-shadow: 0 0 0.1px $white
+		background-color: $accent
+
+
+.navbar-item_sub--sales
+	.navbar-link_sub
+		color: $red
+		text-shadow: 0 0 0.1px $red
+
+		&:hover
+			color: $red
+			text-shadow: 0 0 0.1px $red
+			background-color: transparent
+
+
+//navbar user
+.navbar-shopping-wrap
+	float: right
+	padding-top: 7px
+	z-index: 2
+
+.navar-shopping-list
+	+fz(0)
+
+.navbar-shopping-item
+	display: inline-block
+	margin-left: 15px
+
+	&:first-child
+		margin-left: 0
+
+.navbar-shopping-link
+	display: block
+
+	.icon
+		display: inline-block
+		vertical-align: middle
+		+fz(22px)
+		color: $accentHover
+		transition: color 200ms ease
+
+	.shopping-counter
+		display: inline-block
+		vertical-align: middle
+		+fz(14px)
+		width: 40px
+		height: 40px
+		background-color: $grayBg
+		text-align: center
+		line-height: 40px
+		+br(50%)
+		margin-left: 5px
+
+	.is-added
+		color: $white
+		background-color: $accent
+
+	&:hover
+		.icon
+			color: $accent
+
+
+/* Scroll 2 Top */
+
+.scroll2top
+	display: block
+	position: fixed
+	right: 20px
+	bottom: 20px
+	width: 40px
+	height: 40px
+	background-color: rgba($accent,.4)
+	+br(50%)
+	z-index: 400
+	cursor: pointer
+	transition: background-color 200ms ease
+
+	span
+		display: block
+		position: absolute
+		width: 2px
+		height: 14px
+		top: 50%
+		left: 19px
+		margin-top: -6px
+		background-color: $black
+		transition: background-color 200ms ease
+
+		&:before, &:after
+			content: ''
+			display: block
+			position: absolute
+			width: 2px
+			height: 10px
+			top: -3px
+			background-color: $black
+			transition: background-color 200ms ease
+
+		&:before
+			transform: rotate(-45deg)
+			left: 3px
+
+		&:after
+			transform: rotate(45deg)
+			right: 3px
+
+
+	&:hover
+		background-color: $accent
+
+		span
+			background-color: $white
+
+			&:before, &:after
+				background-color: $white

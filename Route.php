@@ -28,13 +28,22 @@ class Route{
                     $controller = $class_name; 
                     if(isset($exp[1]) && method_exists($controller,$exp[1])){
                         $action=$exp[1];
+
                     }
                 }                  
             }
         }
+        $array_param=array();
+        if(isset($array_uri[1]) && !empty($array_uri[1])){
+            $params=explode('&',$array_uri[1]);            
+            foreach($params as $param){
+                $array=explode('=',$param);
+                $array_param[$array[0]]=$array[1];
+            }
+        }
         $object_controller=new $controller();
         // звернення до змінної 
-        $object_controller->$action();    
+        $object_controller->$action($array_param);    
         }
 }
 ?>

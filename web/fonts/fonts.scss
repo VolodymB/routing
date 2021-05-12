@@ -1,0 +1,168 @@
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans-Regular.eot');
+  src: url('../fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/OpenSans-Regular.woff2') format('woff2'),
+      url('../fonts/OpenSans-Regular.woff') format('woff'),
+      url('../fonts/OpenSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans-Italic.eot');
+  src: url('../fonts/OpenSans-Italic.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/OpenSans-Italic.woff2') format('woff2'),
+      url('../fonts/OpenSans-Italic.woff') format('woff'),
+      url('../fonts/OpenSans-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans-Bold.eot');
+  src: url('../fonts/OpenSans-Bold.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/OpenSans-Bold.woff2') format('woff2'),
+      url('../fonts/OpenSans-Bold.woff') format('woff'),
+      url('../fonts/OpenSans-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/OpenSans-SemiBold.eot');
+  src: url('../fonts/OpenSans-SemiBold.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/OpenSans-SemiBold.woff2') format('woff2'),
+      url('../fonts/OpenSans-SemiBold.woff') format('woff'),
+      url('../fonts/OpenSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Icomoon */
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?oxj8ye');
+  src:  url('../fonts/icomoon.eot?oxj8ye#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?oxj8ye') format('truetype'),
+    url('../fonts/icomoon.woff?oxj8ye') format('woff'),
+    url('../fonts/icomoon.svg?oxj8ye#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-add_circle:before {
+  content: "\e900";
+}
+.icon-add_circle_outline:before {
+  content: "\e901";
+}
+.icon-add_comment:before {
+  content: "\e902";
+}
+.icon-add_shopping_cart:before {
+  content: "\e903";
+}
+.icon-arrow_back:before {
+  content: "\e904";
+}
+.icon-arrow_drop_down:before {
+  content: "\e905";
+}
+.icon-arrow_drop_up:before {
+  content: "\e906";
+}
+.icon-arrow_forward:before {
+  content: "\e907";
+}
+.icon-check_box:before {
+  content: "\e908";
+}
+.icon-check_box_outline_blank:before {
+  content: "\e909";
+}
+.icon-favorite:before {
+  content: "\e90a";
+}
+.icon-favorite_border:before {
+  content: "\e90b";
+}
+.icon-highlight_off:before {
+  content: "\e90c";
+}
+.icon-how_to_reg:before {
+  content: "\e90d";
+}
+.icon-keyboard_arrow_left:before {
+  content: "\e90e";
+}
+.icon-keyboard_arrow_right:before {
+  content: "\e90f";
+}
+.icon-keyboard_backspace:before {
+  content: "\e910";
+}
+.icon-local_mall:before {
+  content: "\e911";
+}
+.icon-local_shipping:before {
+  content: "\e912";
+}
+.icon-location_on:before {
+  content: "\e913";
+}
+.icon-mail:before {
+  content: "\e914";
+}
+.icon-phone:before {
+  content: "\e915";
+}
+.icon-rate_review:before {
+  content: "\e916";
+}
+.icon-remove_circle:before {
+  content: "\e917";
+}
+.icon-remove_circle_outline:before {
+  content: "\e918";
+}
+.icon-remove_shopping_cart:before {
+  content: "\e919";
+}
+.icon-search:before {
+  content: "\e91a";
+}
+.icon-shopping_cart:before {
+  content: "\e91b";
+}
+.icon-turned_in:before {
+  content: "\e91c";
+}
+.icon-turned_in_not:before {
+  content: "\e91d";
+}
+.icon-zoom_in:before {
+  content: "\e91e";
+}
+.icon-zoom_out:before {
+  content: "\e91f";
+}

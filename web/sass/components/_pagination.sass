@@ -1,0 +1,81 @@
+.tab-paginator
+	+fz(0)
+	text-align: center
+	margin: 20px 0 40px
+
+	.paginator,
+	.control-list
+		display: inline-block
+		vertical-align: middle
+
+	.paginator
+		a
+			position: relative
+			+fz(14px)
+			color: $grayText
+			transition: color 200ms ease
+
+			&:before
+				display: block
+				position: absolute
+				font-family: 'icomoon'
+				+fz(22px)
+				color: $white
+				top: -6px
+				width: 32px
+				height: 32px
+				line-height: 32px
+				background-color: $accent
+				+br(50%)
+				transition: background-color 200ms ease
+
+			&:hover
+				color: $black
+
+				&:before
+					background-color: $accentHover
+
+	.control-prev
+		a
+			padding-right: 30px
+			&:before
+				right: -16px
+				content: "\e90e"
+
+	.control-next
+		a
+			padding-left: 30px
+			&:before
+				left: -16px
+				content: "\e90f"
+
+	.control-list
+		margin: 0 35px
+		li
+			display: inline-block
+			vertical-align: middle
+			text-align: center
+			margin: 0 4px
+
+			a,
+			span
+				display: block
+				color: $grayText
+				+fz(14px)
+				width: 32px
+				height: 32px
+				line-height: 30px
+				border: 1px solid $accent
+				+br(50%)
+				transition: all 200ms ease
+			
+			a
+				&:hover
+					color: $white
+					background-color: $accent
+
+
+			.is-active
+				background-color: $accent
+				border-color: $accent
+				color: $white

@@ -1,0 +1,55 @@
+.burger
+  display: none
+  position: absolute
+  top: 8px
+  left: 15px
+  width: 40px
+  height: 40px
+  background-color: transparent
+  outline: none
+  cursor: pointer
+  z-index: 9999
+
+  span
+    content: ""
+    position: absolute
+    display: block
+    top: 19px
+    left: 5px
+    width: 30px
+    height: 3px
+    +br(5px)
+    background-color: $black
+    transition: background-color .125s ease-in .175s
+
+    &:before, &:after
+      content: ""
+      position: absolute
+      display: block
+      left: 0
+      transition: background-color .125s ease-in .175s
+      width: 30px
+      height: 3px
+      border-radius: 5px
+      background-color: $black
+
+    &:before
+      top: -9px
+      transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335), top 0.05s linear 0.125s, left 0.125s ease-in 0.175s
+
+    &:after
+      top: 9px
+      transition: transform 0.125s cubic-bezier(0.6, 0.04, 0.98, 0.335), top 0.05s linear 0.125s, right 0.125s ease-in 0.175s
+
+  &.burger-open
+    span
+      transition: background-color .1s
+      background-color: transparent
+
+      &:before
+        top: 0
+        transform: rotate(135deg)
+
+      &:after
+        top: 0
+        transform: rotate(-135deg)

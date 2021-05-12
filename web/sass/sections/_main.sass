@@ -1,0 +1,934 @@
+body
+	font-family: $font
+	color: $black
+	+fz(16px)
+	display: flex
+	flex-direction: column
+	background-color: $grayBg
+
+section
+	position: relative
+	padding: 50px 0
+	
+
+/* Owl Carousel */
+@import "../components/_owl.sass"
+
+
+/* Goods Category */
+
+.category
+	padding-bottom: 24px
+
+.category-list
+	+fz(0)
+	margin: 0 -13px
+
+.category-item
+	display: inline-block
+	vertical-align: top
+	width: 20%
+	padding: 0 13px
+	margin-bottom: 26px
+	cursor: pointer
+
+	&:hover
+		.category-link
+			border-color: $accent
+			box-shadow: 0 4px 8px 0 $lightGray
+		
+	&:last-child
+		&:hover
+			.category-link
+				border-color: $red
+				box-shadow: 0 4px 8px 0 rgba($red, 0.4)
+
+
+.category-link
+	display: table
+	width: 100%
+	padding: 12px 8px
+	border: 1px solid $gray
+	+br(9px)
+	transition: all 200ms ease
+
+	&__sales
+		border-color: $red
+
+
+.category-img
+	display: table-cell
+	vertical-align: middle
+	width: 56px
+	height: 56px
+	background-color: $grayBg
+	+br(50%)
+	text-align: center
+
+.category-text
+	display: table-cell
+	vertical-align: middle
+	+fz(16px)
+	line-height: 1.2
+	padding-left: 15px
+
+
+/* Popular Items */
+
+.category,
+.materials,
+.brands,
+.goals,
+.unique,
+.upholstery
+	background-color: $white
+
+.section-title
+	padding-right: 20px
+	margin-bottom: 45px
+
+.section-text
+	line-height: 1.5
+
+
+/* Product Item */
+@import "../components/_product-item.sass"
+
+/* Slick Slider */
+@import "../components/_slick.sass"
+
+
+.show-more
+	padding-top: 10px
+	text-align: center
+
+.used
+	padding-bottom: 26px
+
+
+/* Material Item */
+@import "../components/_material-item.sass"
+
+
+/* Brands */
+
+.brand-list-wrap
+	margin-bottom: 20px
+	+fz(0)
+
+.brand-item
+	display: inline-block
+	width: 25%
+	text-align: center
+	vertical-align: middle
+
+.brand-image
+	display: inline-block
+	max-width: 166px
+
+
+/* Contacts */
+
+.map-block
+	position: absolute
+	top: 0
+	right: 0
+	width: 60%
+	height: 100%
+
+	iframe
+		width: 100%
+		height: 100%
+
+.contacts-info-wrap
+	padding-top: 20px
+	margin-bottom: 40px
+
+.contacts-info
+	margin-bottom: 20px
+	padding-left: 35px
+	position: relative
+
+	&:before
+		font-family: 'icomoon'
+		+fz(22px)
+		color: $accentHover
+		display: block
+		position: absolute
+		top: 0
+		left: 0
+		width: 24px
+		height: 24px
+		line-height: 23px
+		text-align: center
+
+
+.contacts-info_address
+	&:before
+		content: "\e913"
+
+.contacts-info_phone
+	&:before
+		content: "\e915"
+
+.contacts-info_email
+	&:before
+		content: "\e914"
+
+
+// map in contact page
+
+.contacts-map
+	iframe
+		width: 100%
+
+
+.info-item-list
+	display: inline-block
+	vertical-align: top
+	margin-right: 20px
+
+.info-item-element
+	margin-bottom: 4px
+
+
+/* Material Popup */
+@import "../components/_material-popups.sass"
+
+/* Navbar Fixed */
+@import "../components/_navbar.sass"
+
+/* Burger */
+@import "../components/_burger.sass"
+
+/* Filter */
+@import "../components/_filter.sass"
+
+
+/* Category */
+
+.page-content
+	padding-top: 25px
+
+
+/* Breadcrumbs */
+@import "../components/_breadcrumbs.sass"
+
+
+.product-sort-wrap
+	margin-bottom: 30px
+
+
+/* Pagination */
+@import "../components/_pagination.sass"
+
+
+/* Popup Modal */
+@import "../components/_popup-modal.sass"
+
+
+/* Item Card */
+
+.item-top
+	margin-bottom: 30px
+
+.item-photo
+	margin-bottom: 15px
+
+.item-photo-image
+	max-width: 100%
+	max-height: 460px
+	height: auto
+	object-fit: cover
+	cursor: zoom-in
+
+.item-photo-list
+	+fz(0)
+
+.item-photo-item
+	display: inline-block
+	margin-right: 15px
+	margin-bottom: 15px
+
+	&:last-child
+		margin: 0
+
+.item-photo-link_min
+	display: block
+	border-bottom: 2px solid transparent
+	transition: border-color 200ms ease
+
+	&:hover
+		border-bottom-color: $accent
+
+
+.item-photo-image_min
+	width: 100%
+	max-width: 80px
+	object-fit: cover
+
+
+// item info
+
+.item-info
+	+br(9px)
+	padding: 20px 24px
+	background-color: $white
+
+.item-descr
+	margin-bottom: 30px
+
+.item-descr-text
+	+fz(14px)
+	color: $black
+	line-height: 1.7
+
+.item-info-purchase
+	margin-bottom: 25px
+
+.purchase-price
+	margin-bottom: 25px
+
+.purchase-price-sale
+	+fz(0)
+	margin-bottom: 3px
+
+	span
+		display: inline-block
+		+fz(14px)
+
+.purchase-price-sale_old
+	color: $grayTextLight
+	text-decoration: line-through
+
+.purchase-price-sale_date
+	color: $red
+	margin-left: 15px
+
+.purchase-price-active
+	+fz(24px)
+	font-weight: bold
+	color: $black
+
+	span
+		display: inline-block
+
+.item-info-buy
+	.bttn
+		display: block
+
+	.item-add-fav
+		display: block
+		height: 56px
+		background-color: $grayBg
+		+br(9px)
+		text-align: center
+
+		.icon
+			+fz(22px)
+			color: $accentHover
+			line-height: 56px
+			&:before
+				transition: color 100ms ease
+
+		&:hover
+			.icon
+				&:before
+					content: '\e90a'
+					color: $red
+
+		.is-added
+			&:before
+				content: '\e90a'
+				color: $red
+
+
+// reference
+
+.item-info-reference
+	border-top: 1px solid $lightGray
+	padding-top: 20px
+
+.reference-state
+	+fz(0)
+	margin-bottom: 15px
+
+	span
+		+fz(14px)
+		display: inline-block
+		vertical-align: middle
+
+	.is-active
+		background-color: $green
+
+.reference-state_point
+	width: 15px
+	height: 15px
+	+br(50%)
+	background-color: $gray
+	margin-right: 10px
+
+
+.reference-delivery-list
+	+fz(0)
+
+.reference-delivery-item
+	display: inline-block
+	margin-left: 25px
+
+	&:first-child
+		margin-left: 0
+
+	span
+		display: inline-block
+		vertical-align: middle
+
+	.icon
+		+fz(20px)
+		color: $accentHover
+		margin-right: 8px
+
+
+.reference-delivery-text
+	+fz(14px)
+
+
+// panel description
+
+.item-bottom
+	margin-bottom: 50px
+
+.panel-descr
+	+br(9px)
+	padding: 8px 16px 16px
+	background-color: $white
+
+.descr-table
+	width: 100%
+
+.descr-table-row
+
+	&:nth-child(odd)
+		background-color: $grayBg
+
+.descr-table-property
+	padding: 10px 14px
+
+.table-property_title
+	margin-right: 5px
+
+.table-property_value
+	font-weight: bold
+
+
+// cloth gallery
+
+.value-cloth
+	display: inline-block
+	vertical-align: middle
+	margin-left: 20px
+	+fz(0)
+
+.value-cloth-item
+	display: inline-block
+	margin: 3px
+
+	&:first-child
+		margin-left: 0
+
+	&:last-child
+		margin-right: 0
+
+.value-cloth-item-link
+	display: block
+	width: 40px
+	height: 40px
+	+br(50%)
+	overflow: hidden
+	position: relative
+
+.value-cloth-item-image_min
+	display: block
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+	max-height: 40px
+
+
+// item comments
+
+.coments-title-wrap
+	padding-top: 8px
+	overflow: hidden
+
+.coments-title
+	display: inline-block
+
+.coments-item
+	+br(9px)
+	background-color: $white
+	padding: 16px
+	margin-bottom: 15px
+
+	&:last-of-type
+		margin-bottom: 0
+
+.coments-item-title
+	overflow: hidden
+	margin-bottom: 12px
+
+.coments-item-title_name
+	+fz(16px)
+	font-weight: 600
+
+.coments-item-title_date
+	float: right
+	color: $grayText
+
+.coments-item-text
+	+fz(14px)
+	line-height: 1.7
+
+.coments-show-more
+	text-align: center
+
+	.bttn_small
+		+fz(14px)
+
+
+.coments-empty
+	+fz(14px)
+	color: $grayText
+	text-align: center
+	padding-top: 40px
+	margin-bottom: 30px
+
+
+// coments-form
+
+.coments-form
+	max-width: 100%
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.24)
+
+	.form-group-wrap
+		margin-bottom: 40px
+
+	.bttn_send
+		letter-spacing: normal
+
+.viewed-items
+	background-color: $white
+
+.bttn_coment-back,
+.coments-form,
+.order-form
+	display: none
+
+
+/* Cart */
+
+.cart-sticky
+	position: static
+	position: sticky
+	top: 70px
+	margin-bottom: 50px
+
+.cart-total
+	padding: 25px 30px
+	+br(9px)
+	background-color: $white
+
+.cart-total-count
+	+fz(16)
+	font-weight: 600
+	line-height: 1.3
+	margin-bottom: 15px
+
+.cart-total-head
+	+fz(0)
+	margin-bottom: 25px
+
+	span
+		display: inline-block
+
+
+.cart-total-text
+	+fz(16px)
+	font-weight: 600
+	width: 35%
+
+.cart-total-summ
+	+fz(24px)
+	font-weight: bold
+	text-align: right
+	width: 65%
+
+.cart-total-act
+	.bttn
+		display: block
+		width: 100%
+		margin-bottom: 7px
+
+		&:last-of-type
+			margin-bottom: 0
+
+
+.cart-list
+	margin-bottom: 50px
+
+
+// empty cart
+
+.empty-state
+	text-align: center
+	margin-bottom: 50px
+
+	.bttn
+		color: $white
+		text-transform: uppercase
+
+
+.empty-state-icon
+	padding-top: 30px
+	margin-bottom: 25px
+
+.empty-state-text
+	+fz(24px)
+	color: $grayText
+	font-weight: 600
+	margin-bottom: 35px
+
+
+/* Order Page */
+
+.order-form
+	max-width: 100%
+	border: 1px solid transparent
+	box-shadow: none
+	padding: 30px
+	margin-top: 16px
+
+	.title
+		font-weight: 600
+
+	.bttn_send
+		text-transform: none
+		letter-spacing: normal
+
+
+/* About Us */
+
+.about
+	background-image: url(../img/about_bg.jpg)
+	background-repeat: no-repeat
+	background-size: cover
+	background-position: center center
+
+.about-image-wrap
+	text-align: center
+	padding-top: 45px
+
+.about-image
+	max-width: 320px
+	width: 100%
+
+.about-text
+	line-height: 1.6
+
+
+// Goals
+
+.goals
+	padding-bottom: 0
+
+.goals-list
+	padding-top: 15px
+
+.goals-item
+	text-align: center
+	padding: 0 50px
+	margin-bottom: 20px
+
+.goals-item-image
+	margin-bottom: 20px
+	height: 80px
+	position: relative
+
+	img
+		display: block
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+
+
+.goals-item-title
+	margin-bottom: 10px
+	min-height: 40px
+	line-height: 1.3
+
+.goals-item-descr
+	+fz(14px)
+	line-height: 1.6
+	min-height: 190px
+
+
+// Advantages
+
+.advantages-list
+	padding-top: 20px
+
+.advantages-item
+	text-align: center
+	padding: 0 40px
+
+.advantages-item-image
+	height: 60px
+	position: relative
+	margin-bottom: 20px
+
+	img
+		display: block
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+
+
+.advantages-item-descr
+	line-height: 1.4
+	min-height: 50px
+
+
+// Unique
+
+.unique-text-wrap
+	padding-right: 110px
+	line-height: 1.5
+
+.unique-text-item
+	text-indent: 25px
+	position: relative
+
+	&:before
+		content: '-'
+		display: block
+		position: absolute
+		left: 0
+		text-indent: 0
+
+
+/* Product Page */
+
+.fabric
+	padding: 70px 0
+	background-image: url(../img/fabric_bg.jpg)
+	background-repeat: no-repeat
+	background-size: cover
+	background-position: center center
+
+
+.fabric-text
+	line-height: 1.6
+
+
+// Mehanizm
+
+.mehanizm
+	padding-bottom: 0
+
+.mehanizm-list-wrap
+	margin-bottom: 20px
+
+.mehanizm-list
+	+fz(0)
+	padding-top: 20px
+	counter-reset: mehanizm-list
+
+.mehanizm-item
+	display: inline-block
+	text-align: center
+	vertical-align: top
+	width: 11.1%
+	padding: 0 10px
+	margin-bottom: 15px
+
+.mehanizm-item-counter
+	display: inline-block
+	width: 40px
+	height: 40px
+	background-color: $white
+	line-height: 40px
+	margin-bottom: 15px
+	+br(50%)
+	text-align: center
+
+	&:before
+		counter-increment: mehanizm-list
+		content: counter(mehanizm-list)
+		+fz(16px)
+		color: $black
+		font-weight: bold
+
+
+.mehanizm-item-title
+	+fz(16px)
+
+
+// Rules
+
+.rules-wrap
+	padding: 35px
+	border: 1px solid $yellow
+
+.rules-list
+	counter-reset: rules-list
+
+.rules-item-counter
+	display: inline-block
+	width: 40px
+	height: 40px
+	background-color: $white
+	line-height: 40px
+	margin-bottom: 15px
+	+br(50%)
+	text-align: center
+
+	&:before
+		counter-increment: rules-list
+		content: counter(rules-list)
+		+fz(16px)
+		color: $black
+		font-weight: bold
+
+
+.rules-item-text
+	line-height: 1.5
+
+
+// Upholstery
+
+.upholstery-text-wrap
+	margin-bottom: 30px
+
+.upholstery-text
+	margin-bottom: 10px
+
+.upholstery-type
+	padding-top: 30px
+	text-align: center
+
+.upholstery-type-title
+	margin-bottom: 30px
+
+.upholstery-type-list
+	+fz(0)
+
+.upholstery-type-item
+	display: inline-block
+	width: 33.3%
+	margin-bottom: 30px
+
+.upholstery-type-image-wrap
+	display: inline-block
+	width: 80px
+	height: 80px
+	+br(50%)
+	background-color: $lightGray
+	margin-bottom: 15px
+	overflow: hidden
+	position: relative
+
+.upholstery-type-image
+	position: absolute
+	left: 50%
+	transform: translateX(-50%)
+	max-height: 80px
+
+.upholstery-type-text
+	+fz(16px)
+
+
+/* Delivery */
+
+.delivery
+	background-image: url(../img/delivery_bg.jpg)
+	background-repeat: no-repeat
+	background-size: cover
+	background-position: top center
+
+.delivery-icon
+	text-align: center
+	margin-bottom: 30px
+
+.delivery-text
+	line-height: 1.5
+	margin-bottom: 15px
+
+
+/* Partner */
+
+.partner-title
+	margin-bottom: 60px
+
+.partner-text
+	line-height: 1.5
+	margin-bottom: 15px
+
+	strong
+		+fz(18px)
+		font-weight: 600
+		line-height: 1.4
+
+
+.partner-list
+	display: flex
+	flex-wrap: wrap
+	//justify-content: space-between
+	counter-reset: partner-list
+
+.partner-item
+	width: 25%
+	padding-right: 30px
+	margin-bottom: 40px
+
+.partner-item-counter
+	display: inline-block
+	text-align: center
+	width: 56px
+	height: 56px
+	background-color: $accent
+	line-height: 56px
+	+br(50%)
+	margin-bottom: 25px
+
+	&:before
+		counter-increment: partner-list
+		content: counter(partner-list)
+		+fz(24px)
+		color: $white
+		font-weight: bold
+
+
+/* Wholesale */
+
+.wholesale
+	background-image: url(../img/about_bg.jpg)
+	background-repeat: no-repeat
+	background-size: cover
+	background-position: center center
+
+.wholesale-text-wrap
+	margin-bottom: 70px
+
+.wholesale-form
+	position: absolute
+	top: -80px
+	right: 150px
+	z-index: 5
+	max-width: 460px
+	width: 100%
+
+	.form-group-wrap
+		margin-bottom: 30px
