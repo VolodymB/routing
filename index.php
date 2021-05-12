@@ -1,4 +1,5 @@
 <?php
+// ключовий файл де підключаються всі необхідні файли
 require_once 'config/Db.php';
 require_once 'vendor/Model.php';
 require_once 'vendor/View.php';

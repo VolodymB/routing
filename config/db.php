@@ -1,11 +1,14 @@
 <?php
 class Db{
+    // запис констант
     const USER='root';
     const PASS='root';
     const HOST='localhost';
     const DB='tea_store';
 
+    // функція для підключення до бд
     public static function connect(){
+        // звернення в середині класу до самого себе(батьківських властивостей) через self
         $hosting=self::HOST;
         $db=self::DB;
         $charset='utf8';

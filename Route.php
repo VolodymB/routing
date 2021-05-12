@@ -1,21 +1,33 @@
 <?php
+// підключчення файла 
 include_once 'controllers/IndexController.php';
+
 class Route{
+    // функція для отримання мітки Uri
     private static function getUri(){
         return $_SERVER['REQUEST_URI'];
     }
+
+    // функція для маршрутизації
     public static function start(){
+        // глобальна змінна routes
         global $routes;
+        // отримання мітки Uri
         $uri=self::getUri();
         /**http://teastore/
         http://teastore/products
         http://teastore/product/index
         http://teastore/product?product_id=5
         http://teastore/product?product_id=5&category_id=3 */
+        // назва контролера
         $controller='IndexController';
+        // назва дії
         $action='index';
+        // обробка готової адресової стрічки
+        // розділення на адресу і параметри
         $array_uri=explode('?',$uri);
-        if(isset($routes[$array_uri[0]])){            
+        if(isset($routes[$array_uri[0]])){ 
+                    //  розділення на контрольну частину і діючу  
             $exp=explode('/',$routes[$array_uri[0]]);
             // $exp[0] - контролер, $exp[1]->action
             $class_name= ucfirst($exp[0]).'Controller';//exp, ProductController
@@ -33,11 +45,17 @@ class Route{
                 }                  
             }
         }
+        // обробка параметрів
+        // формування пустого масиву 
         $array_param=array();
         if(isset($array_uri[1]) && !empty($array_uri[1])){
-            $params=explode('&',$array_uri[1]);            
+            // розділення параметрів
+            $params=explode('&',$array_uri[1]);  
+                    //обробка через цикл результату   
             foreach($params as $param){
+                // виділення ключа і значення
                 $array=explode('=',$param);
+                // надання масиву знначення по ключу
                 $array_param[$array[0]]=$array[1];
             }
         }

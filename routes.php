@@ -1,4 +1,5 @@
 <?php
+// масив з можливими значеннями 
 $routes=array(
     '/'=>'index',
     '/about'=>'index/about',

@@ -25,9 +25,11 @@
 	<![endif]-->
 </head>
 <body>
+<!-- header -->
 <div>
 <?php include('header.php') ?>
 </div>
+<!-- /header -->
 	<!-- main-wrap -->
 	<div class="wrapper">
 		<div class="page-content">

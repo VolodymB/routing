@@ -1,8 +1,9 @@
 <?php
     
-
+    // action частина яка відповідає за підключення файлів view
     class IndexController extends Controller{
 
+        // підключення файла index.php і обробка інформації, яка може вийти з нього
         public function index(){
             $data['title']='hello';
             return $this->view->render('index',$data);

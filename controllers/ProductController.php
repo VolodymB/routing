@@ -1,7 +1,11 @@
 <?php
+/**
+ * ./ - вихід з діючою папки
+ * підключення класу Product 
+ */
 require_once './models/Product.php';
 
-
+// наслідування від класу Controller
 class ProductController extends Controller{
 
     //перевизначення методу __construct спеціально для product
@@ -11,11 +15,13 @@ class ProductController extends Controller{
 
     }
 
+    // функція для формування і відображення головної сторінки product
     public function index(){
         
         echo 'products this is product';
     }
 
+    // функція для формування відображення товару і його зображення
     public function view($data){
         //пустий масив для інфо про продукт
         $data_page=array();
