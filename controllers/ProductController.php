@@ -30,7 +30,26 @@ class ProductController extends Controller{
                 // заповнюємо інфо про продукт
                $data_page['product']=$product;
             //    заповнюємо зображеннями даний масив
-               $data_page['images']=$this->model->getProductImages($data['id']);
+               $images=$this->model->getProductImages($data['id']);
+            //    якщо не пустий і кількість елементів більше 1
+                $data_page['images']=false; 
+                if(count($images)>1){
+                    // вирізаємо перший елемент масиву 
+                    $data_page['main_image']=array_shift($images);
+                    $data_page['images']=$images;
+                }elseif(count($image)==1){
+                    $data_page['main_image']=$image[0];
+                    
+                }else{
+                    $data_page['main_image']='';
+                }
+
+                $data_page['units']=$this->model->getProductUnitPrice($data['id']);
+                // array(2) { [0]=> array(3) { ["unit_id"]=> int(2) ["name"]=> string(8) "0,1 кг" ["price"]=> float(300) } [1]=> array(3) { ["unit_id"]=> int(3) ["name"]=> string(9) "0,05 кг" ["price"]=> float(250)
+                
+
+               $data_page['header']=$this->view->render('header');
+               $data_page['footer']=$this->view->render('footer');
                return $this->view->render('product',$data_page);
             }
         }

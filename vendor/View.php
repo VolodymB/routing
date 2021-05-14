@@ -5,8 +5,9 @@ class View{
      * data масив з параметрами, який передається
      * return підключення файла відображення
      */
-    public function render($tpl,$data){
-        $path=$path='views/'.$tpl.'.php';        
+    // переведння частини адреси в назву файла
+    public function render($tpl,$data=array()){
+        $path='views/'.$tpl.'.php';        
         include_once $path;
         
     }

@@ -48,6 +48,7 @@ class Route{
         // обробка параметрів
         // формування пустого масиву 
         $array_param=array();
+        // $array_uri[1] параметри
         if(isset($array_uri[1]) && !empty($array_uri[1])){
             // розділення параметрів
             $params=explode('&',$array_uri[1]);  

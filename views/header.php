@@ -1,13 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Меблевий магазин "Руслан"</title>
+	<!-- Bootstrap CDN -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="favicon.png">
+	<link rel="apple-touch-icon" href="favicon.png" />
+	<link rel="apple-touch-icon-precomposed" href="favicon.png"/>
+	<!--[if IE]>
+		<link rel="shortcut icon" href="favicon.ico">
+	<![endif]-->
+	<!-- Styles -->
+	<link rel="stylesheet" href="./web/js/owl-carousel/owl.carousel.min.css">
+	<link rel="stylesheet" href="./web/js/slick-slider/slick.css">
+	<link rel="stylesheet" href="./web/js/magnific-popup/magnific-popup.css">
+	<link rel="stylesheet" href="./web/css/style.css">
+	<!--[if lte IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
 </head>
 <body>
-    	<!-- header -->
+<!-- header -->
 	<header class="header">
 		<!-- header-top -->
 		<div class="header-top">
@@ -131,5 +149,5 @@
 			</div>
 		</div>
 	</header>
-</body>
-</html>
+
+<!-- /header -->

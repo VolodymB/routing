@@ -22,9 +22,26 @@ class Product extends Model{
         $select->execute($data);
         $result=array();
         foreach($select->fetchAll() as $item){
-            $result[]=$item['image'];
+            $result[]=PATH_PRODUCT.$item['image'];
         }
         return $result;
+    }
+
+    /**
+     * return array
+     * [
+     * одиниція виміру(id, name) - ціна
+     * 
+     * ]
+     */
+    public function getProductUnitPrice($id){
+        $sql='SELECT `unit_id`,`name`,`price` FROM `product_unit` LEFT JOIN `unit` on `unit_id`=`id` WHERE `product_id`=:product_id';
+        $data=array(
+            'product_id'=>$id
+        );
+        $select=$this->db->prepare($sql);
+        $select->execute($data);
+        return $select->fetchAll();
     }
 
 }
