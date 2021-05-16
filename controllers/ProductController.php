@@ -46,6 +46,9 @@ class ProductController extends Controller{
 
                 $data_page['units']=$this->model->getProductUnitPrice($data['id']);
                 // array(2) { [0]=> array(3) { ["unit_id"]=> int(2) ["name"]=> string(8) "0,1 кг" ["price"]=> float(300) } [1]=> array(3) { ["unit_id"]=> int(3) ["name"]=> string(9) "0,05 кг" ["price"]=> float(250)
+                // дістаю всі коментарі по ProductId
+                // array(2) { [0]=> array(5) { ["user_id"]=> int(2) ["name"]=> string(4) "Rita" ["comment_id"]=> int(1) ["comment"]=> string(9) "Very Good" ["raiting"]=> int(5) } [1]=> array(5) { ["user_id"]=> int(8) ["name"]=> string(4) "Kort" ["comment_id"]=> int(2) ["comment"]=> string(8) "Good day" ["raiting"]=> int(3)
+                $data_page['comments']=$this->model->getCommentsByProductId($data['id']);
                 
 
                $data_page['header']=$this->view->render('header');

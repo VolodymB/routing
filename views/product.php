@@ -238,10 +238,21 @@
 									</div>
 									<!-- coments content -->
 									<div class="coments-content">
-										<!-- IF NO COMMENTS -->
-										<p class="coments-empty hidden">Для цього товару не залишили відгук</p>
-
+											<?php if($data['comments']){?>
+											<?php foreach($data['comments'] as $comment):  ?>											
 										<div class="coments-item">
+											<div class="coments-item-title">
+												<span class="coments-item-title_name"><?=$comment['name']?></span>
+												<!-- <span class="coments-item-title_date">29.05.18</span> -->
+											</div>
+											<p class="coments-item-text"><?=$comment['comment']?></p>
+											<?php endforeach; ?>
+											<?php }else{ ?>
+											<!-- IF NO COMMENTS -->	
+												<p class="coments-empty hidden">Для цього товару не залишили відгук</p>
+											<?php } ?>
+										</div>										
+										<!-- <div class="coments-item">
 											<div class="coments-item-title">
 												<span class="coments-item-title_name">Ірина</span>
 												<span class="coments-item-title_date">29.05.18</span>
@@ -254,14 +265,7 @@
 												<span class="coments-item-title_date">29.05.18</span>
 											</div>
 											<p class="coments-item-text">Диван полностью соответствует фото. Порадовала цена со скидкой. Раскладывается легко. Надеемся, что и в использовании будет качественным.</p>
-										</div>
-										<div class="coments-item">
-											<div class="coments-item-title">
-												<span class="coments-item-title_name">Ірина</span>
-												<span class="coments-item-title_date">29.05.18</span>
-											</div>
-											<p class="coments-item-text">Диван полностью соответствует фото. Порадовала цена со скидкой. Раскладывается легко. Надеемся, что и в использовании будет качественным.</p>
-										</div>
+										</div> --> -->
 										<div class="coments-show-more">
 											<a href="#" class="show-more-link bttn_small">Показати ще</a>
 										</div>

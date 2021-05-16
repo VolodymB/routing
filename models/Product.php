@@ -44,5 +44,15 @@ class Product extends Model{
         return $select->fetchAll();
     }
 
+    public function getCommentsByProductId($id){
+        $sql='SELECT  `user`.`id` as "user_id",`user`.`name`,`comment`.`id` as "comment_id",`comment`.`comment`,`comment`.`raiting` FROM `comment` LEFT JOIN `user` ON `comment`.`user_id`=`user`.`id` WHERE `product_id`=:product_id';
+        $data=array(
+            'product_id'=>$id
+        );
+        $select=$this->db->prepare($sql);
+        $select->execute($data);
+        return $select->fetchAll();
+    }
+
 }
 ?>
