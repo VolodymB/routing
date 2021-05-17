@@ -17,8 +17,11 @@ class ProductController extends Controller{
 
     // функція для формування і відображення головної сторінки product
     public function index(){
-        
-        echo 'products this is product';
+        $data_page=array();
+        $data_page['products']=$this->model->getListProducts();        
+        $data_page['header']=$this->view->render('header');
+        $data_page['footer']=$this->view->render('footer');
+        return $this->view->render('catalog',$data_page);
     }
 
     // функція для формування відображення товару і його зображення

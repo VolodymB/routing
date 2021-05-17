@@ -56,10 +56,10 @@
 							<div class="col-lg-4 col-md-5 col-sm-5">
 								<div class="item-info">
 									<div class="item-title-wrap">
-										<h1 class="title title_main"><?=$data['product']['name']?></h1>
+										<h1 class="title title_main"><?=$data['product']['name'].', '.$data['product']['year']?></h1>
 									</div>
 									<div class="item-descr">
-										<p class="item-descr-text">Диван «Карат» — це одна з найбільш затребуваних моделей. Вона компактна, зручна і красива. А її мініатюрні розміри не залишать вас байдужими (1.9 м х 0.75 м). Така софа стане ідеальним рішенням як для малогабаритної квартири так і для заміського будинку.</p>
+										<p class="item-descr-text"><?=$data['product']['description']?></p>
 									</div>
 									<!-- item-purchase -->
 									<div class="item-info-purchase">
@@ -103,8 +103,9 @@
 										<!-- reference state -->
 										<div class="reference-state">
 											<!-- add/remove "is-active" -->
-											<span class="reference-state_point is-active"></span>
-											<span class="reference-state_text">Є в наявності</span>
+											
+											<span class="reference-state_point <?=($data['product']['status_id']==2)?false:'is-active' ?>"></span>
+											<span class="reference-state_text"><?=$data['product']['status_name']?></span>
 										</div>
 										<!-- reference delivery -->
 										<ul class="reference-delivery-list">
@@ -246,12 +247,13 @@
 												<!-- <span class="coments-item-title_date">29.05.18</span> -->
 											</div>
 											<p class="coments-item-text"><?=$comment['comment']?></p>
+											</div>
 											<?php endforeach; ?>
 											<?php }else{ ?>
 											<!-- IF NO COMMENTS -->	
 												<p class="coments-empty hidden">Для цього товару не залишили відгук</p>
 											<?php } ?>
-										</div>										
+																				
 										<!-- <div class="coments-item">
 											<div class="coments-item-title">
 												<span class="coments-item-title_name">Ірина</span>
@@ -265,26 +267,31 @@
 												<span class="coments-item-title_date">29.05.18</span>
 											</div>
 											<p class="coments-item-text">Диван полностью соответствует фото. Порадовала цена со скидкой. Раскладывается легко. Надеемся, что и в использовании будет качественным.</p>
-										</div> --> -->
+										</div> --> 
 										<div class="coments-show-more">
 											<a href="#" class="show-more-link bttn_small">Показати ще</a>
 										</div>
 									</div>
 									<!-- coments form -->
 									<div class="popup-modal coments-form">
-										<form id="add-coment" class="form">
+										<form id="add-coment" class="form" method='POST' action='add_comment'>
 											<h3 class="title title_center title_modal-small">Залишити відгук</h3>
-											<div class="form-group-wrap">
-
+											<div class="form-group-wrap">												
 												<div class="form-item">
 													<input type="text" name="coment_name" class="input_modal" maxlength="30" tabindex="0" required>
 													<label class="input_label-modal">Ваше ім’я *</label>
 												</div>
+												<input type="hidden" name='product_id' value='<?=$data['product']['id']?>'>
+												<?php for($i=1;$i<=5;$i++){ ?>
+												<input type="radio" name='raiting' value='<?=$i?>'><?=$i?><br>
+												<?php } ?>
+												
+												
 
-												<div class="form-item">
+												<!-- <div class="form-item">
 													<input type="email" name="coment_email" class="input_modal" required>
 													<label class="input_label-modal">E-mail</label>
-												</div>
+												</div> -->
 
 												<div class="form-item">
 													<textarea id="input_textarea" name="coment_msg" rows="1" class="input_modal input_modal-textarea"></textarea>

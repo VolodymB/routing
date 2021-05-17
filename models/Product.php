@@ -3,7 +3,7 @@ class Product extends Model{
 
     // пошук товару по його id
     public function getProductById($id){
-        $sql="SELECT * FROM `product` WHERE `id`=:id";
+        $sql="SELECT `product`.`id`,`product`.`name`,`product`.`year`,`product`.`description`,`product`.`status_id`,`status_product`.`name` as 'status_name' FROM `product` LEFT JOIN `status_product` ON `product`.`status_id`=`status_product`.`id` WHERE `product`.`id`=:id";
         $data=array(
             'id'=>$id
         );
@@ -54,5 +54,18 @@ class Product extends Model{
         return $select->fetchAll();
     }
 
-}
+    /**
+     * назва, одне фото,
+     * мінімальна ціна
+     * категорія
+     */
+    public function getListProducts(){
+        $products=array();
+        $sql="SELECT `product`.`name`,`product`.`year`,`product_id`, MIN(`price`) as 'price' FROM `product_unit` LEFT JOIN `product` ON `product_id`=`product`.`id` GROUP BY `product_id`";
+        foreach($this->db->query($sql) as $product){
+            $products[]=$product;           
+        }
+        return $products;
+    }
+    }
 ?>
