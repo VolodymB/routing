@@ -6,6 +6,7 @@ $routes=array(
     '/contact'=>'index/contact',
     '/products'=>'product/index',
     '/product'=>'product/view',
-    '/add_comment'=>'comment/add'
+    '/add_comment'=>'comment/add',
+    
 );
 ?>

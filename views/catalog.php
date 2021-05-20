@@ -68,12 +68,12 @@
 										</div>
 									</div>
 									<!-- filter item -->
-									<div class="filter-item">
+									<!-- <div class="filter-item">
 										<div class="filter-item-head">
 											<p class="filter-item-title">Механізми трансформації</p>
-										</div>
+										</div> -->
 										<!-- type mechanism -->
-										<div class="filter-item-content">
+										<!-- <div class="filter-item-content">
 											<ul class="check-box">
 												<li>
 													<input type="checkbox" name="mechanism" id="delfin" class="input_checkbox">
@@ -115,7 +115,7 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<button class="bttn_small bttn_filter">
 								<span>Показати фільтр</span>
 								<span class="hidden">Сховати фільтр</span>
@@ -163,7 +163,6 @@
 							<div class="product-list-wrap">
 								<div class="row">
                                     <?php foreach($data['products'] as $product): ?>
-
 									<!-- product item -->
 									<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
 										<figure class="product-item">

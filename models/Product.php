@@ -63,9 +63,17 @@ class Product extends Model{
         $products=array();
         $sql="SELECT `product`.`name`,`product`.`year`,`product_id`, MIN(`price`) as 'price' FROM `product_unit` LEFT JOIN `product` ON `product_id`=`product`.`id` GROUP BY `product_id`";
         foreach($this->db->query($sql) as $product){
-            $products[]=$product;           
+            $products[]=$product;
+            /** якось знайти і підключити зображення
+             * getProductImages($product_id)
+             * додати в масив $product */  
+                    
         }
         return $products;
     }
+
+    
+
+
     }
 ?>

@@ -280,10 +280,12 @@
 												<div class="form-item">
 													<input type="text" name="coment_name" class="input_modal" maxlength="30" tabindex="0" required>
 													<label class="input_label-modal">Ваше ім’я *</label>
-												</div>
+												</div>												
 												<input type="hidden" name='product_id' value='<?=$data['product']['id']?>'>
+												<!-- <input type="radio" id="star-5" name="rating" value="5">
+												<label for="star-5" title="Оценка «5»"></label>	 -->
 												<?php for($i=1;$i<=5;$i++){ ?>
-												<input type="radio" name='raiting' value='<?=$i?>'><?=$i?><br>
+												<input type="radio"  name='raiting' value='<?=$i?>'><?=$i?><br>
 												<?php } ?>
 												
 												
