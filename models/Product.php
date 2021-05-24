@@ -61,16 +61,56 @@ class Product extends Model{
      */
     public function getListProducts(){
         $products=array();
+        $images=array();
+        $categories=array();
+
         $sql="SELECT `product`.`name`,`product`.`year`,`product_id`, MIN(`price`) as 'price' FROM `product_unit` LEFT JOIN `product` ON `product_id`=`product`.`id` GROUP BY `product_id`";
         foreach($this->db->query($sql) as $product){
             $products[]=$product;
+            /**
+             *  дістати категорії товару
+             * getCategoryById(id)
+             * */   
+            if($product_categories=self::getCategoryById($product['product_id'])){
+                foreach($product_categories as $category){
+                    $products['categories']=$category;
+                }
+            }
+                    //int(1) 
+                    /** якось знайти і підключити зображення
+                     * getProductImages($product_id)
+                     * додати в масив $product */    
+            if($product_images=self::getProductImages($product['product_id'])){
+                // foreach($product_images as $image){
+                    // echo '<pre>';
+                    // var_dump($image); 
+                    // echo '</pre>';
+                    // die;                   
+                // }
+                $products['image']=$product_images[0];
+            }            
             /** якось знайти і підключити зображення
              * getProductImages($product_id)
              * додати в масив $product */  
                     
         }
+        // echo '<pre>';
+        // var_dump($products); 
+        // echo '</pre>';
+        // die;
         return $products;
     }
+
+    public function getCategoryById($id){
+        $sql="SELECT `category`.`name` FROM `category` LEFT JOIN `product_category` ON `category`.`id`= `product_category`.`category_id` WHERE `product_category`. `product_id`=:product_id";
+        $data=array(
+            'product_id'=>$id
+        );
+        $select=$this->db->prepare($sql);
+        $select->execute($data);
+        return $select->fetchAll();
+        } 
+
 
     
 

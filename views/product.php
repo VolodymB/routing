@@ -83,7 +83,7 @@
 										<div class="item-info-buy">
 											<div class="row min">
 												<div class="col-md-9 col-sm-9 col-xs-9">
-													<a href="" class="bttn">
+													<a href="add_basket.php?product_id=<?=$unit['unit_id']?>" class="bttn">
 														<span class="icon icon-add_shopping_cart"></span>
 														<span>Придбати</span>
 													</a>

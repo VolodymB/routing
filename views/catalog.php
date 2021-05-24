@@ -140,7 +140,7 @@
 													<span class="icon icon-keyboard_arrow_right"></span>
 												</li>
 												<li class="breadcrumbs-item">
-													<a href="#" class="breadcrumbs-item-link">Товари</a>
+													<a href="" class="breadcrumbs-item-link">Товари</a>
 													<span class="icon icon-keyboard_arrow_right"></span>
 												</li>
 												<li class="breadcrumbs-item">
@@ -168,15 +168,16 @@
 										<figure class="product-item">
 											<div class="product-image">
 												<a href="#" class="product-image-link">
-													<img src="img/item.jpg" alt="<?=$product['name']?>">
+													<img src="<?=$product['image']?>" alt="<?=$product['name']?>">
 												</a>
 											</div>
 											<figcaption class="product-text-wrap">
 												<div class="product-name">
 													<h3 class="product-title">
-														<a href="#" class="product-title-link"><?=$product['name']?></a>
+														<a href="product?id=<?=$product['product_id']?>" class="product-title-link"><?=$product['name']?></a>
 													</h3>
-													<span class="product-category">Дивани</span>
+													<!-- категорія товару  -->
+													<span class="product-category"><?=$product['categories'][0]['name']?></span>
 												</div>
 												<div class="product-price">
 													<!-- <p class="product-price-sale">
@@ -188,11 +189,11 @@
 													</p>
 												</div>
 												<div class="product-buy">
-													<a href="#" class="bttn">
+													<a href="add_basket=<?=$product['product_id']?>" class="bttn">
 														<span class="icon icon-add_shopping_cart"></span>
 														<span>Придбати</span>
 													</a>
-													<a href="#" class="product-add-fav">
+													<a href="" class="product-add-fav">
 														<span class="icon icon-favorite_border is-active"></span>
 													</a>
 												</div>
