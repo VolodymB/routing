@@ -126,6 +126,17 @@ class Product extends Model{
         } 
 
 
+        public function getProductByIdByUnit($product_id,$unit_id){
+            $sql="SELECT * FROM `product_unit` WHERE `quantity`>0 AND `product_id`=:product_id AND `unit_id`=:unit_id";
+            $data=[
+                'product_id'=>$product_id,
+                'unit_id'=>$unit_id
+            ];
+            $select=$this->db->prepare($sql);
+            return $select->execute($data);
+        }
+
+
     
 
 

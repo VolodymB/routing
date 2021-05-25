@@ -153,7 +153,7 @@
 													</p>
 												</div>
 												<div class="product-buy">
-													<a href="add_basket=<?=$product['product_id']?>" class="bttn">
+													<a href="product?id=<?=$product['product_id']?>" class="bttn">
 														<span class="icon icon-add_shopping_cart"></span>
 														<span>Придбати</span>
 													</a>

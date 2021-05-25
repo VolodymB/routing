@@ -63,6 +63,8 @@
 									</div>
 									<!-- item-purchase -->
 									<div class="item-info-purchase">
+									<form action="/add_basket" id='add_to_basket' method="POST">
+										<input type="hidden" name='product_id' value='<?=$data['product']['id']?>'>
 										<!-- price -->
 										<div class="purchase-price">
 											<select name="unit_id" >											
@@ -78,15 +80,15 @@
 												<span>16467 грн</span>
 											</p> -->
 										</div>
-
+										</form>
 										<!-- button -->
 										<div class="item-info-buy">
 											<div class="row min">
 												<div class="col-md-9 col-sm-9 col-xs-9">
-													<a href="add_basket.php?product_id=<?=$unit['unit_id']?>" class="bttn">
+													<button type='submit' form='add_to_basket'  class="bttn">
 														<span class="icon icon-add_shopping_cart"></span>
 														<span>Придбати</span>
-													</a>
+													</button>
 												</div>
 												<div class="col-md-3 col-sm-3 col-xs-3">
 													<a href="" class="item-add-fav">
@@ -96,7 +98,7 @@
 												</div>
 											</div>
 										</div>
-
+									
 									</div>
 									<!-- item-reference -->
 									<div class="item-info-reference clearfix">
