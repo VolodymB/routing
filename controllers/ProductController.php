@@ -4,6 +4,7 @@
  * підключення класу Product 
  */
 require_once './models/Product.php';
+require_once './models/Category.php';
 
 // наслідування від класу Controller
 class ProductController extends Controller{
@@ -19,6 +20,10 @@ class ProductController extends Controller{
     // функція для формування і відображення головної сторінки product
     public function index(){
         $data_page=array();
+        $category=new Category();
+        $data_page['categories']=$category->getListCategory();
+        // var_dump( $data_page['categories']);
+        // die;
         $data_page['products']=$this->model->getListProducts();    
         $data_page['header']=$this->view->render('header');
         $data_page['footer']=$this->view->render('footer');

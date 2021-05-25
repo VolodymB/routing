@@ -62,37 +62,51 @@ class Product extends Model{
     public function getListProducts(){
         $products=array();
         $images=array();
-        $categories=array();
+        
 
         $sql="SELECT `product`.`name`,`product`.`year`,`product_id`, MIN(`price`) as 'price' FROM `product_unit` LEFT JOIN `product` ON `product_id`=`product`.`id` GROUP BY `product_id`";
         foreach($this->db->query($sql) as $product){
-            $products[]=$product;
+            $product_info=array();
+            $categories=array();
+            $image='./web/img/default_image.jpg';
+           
             /**
              *  дістати категорії товару
              * getCategoryById(id)
              * */   
-            if($product_categories=self::getCategoryById($product['product_id'])){
+            if($product_categories=$this->getCategoryByProductId($product['product_id'])){
+                
                 foreach($product_categories as $category){
-                    $products['categories']=$category;
+                    $categories[]=$category['name'];
                 }
+                // var_dump($categories);
+                // die;
             }
                     //int(1) 
                     /** якось знайти і підключити зображення
                      * getProductImages($product_id)
                      * додати в масив $product */    
-            if($product_images=self::getProductImages($product['product_id'])){
+            if($product_images=$this->getProductImages($product['product_id'])){
                 // foreach($product_images as $image){
                     // echo '<pre>';
                     // var_dump($image); 
                     // echo '</pre>';
                     // die;                   
                 // }
-                $products['image']=$product_images[0];
+                $image=$product_images[0];
             }            
             /** якось знайти і підключити зображення
              * getProductImages($product_id)
              * додати в масив $product */  
-                    
+            $product_info=array(
+                'product_id'=>$product['product_id'],
+                'name'=>$product['name'],
+                'year'=>$product['year'],
+                'price'=>$product['price'],
+                'categories'=>$categories,
+                'image'=>$image
+            );
+            $products[]=$product_info;        
         }
         // echo '<pre>';
         // var_dump($products); 
@@ -101,7 +115,7 @@ class Product extends Model{
         return $products;
     }
 
-    public function getCategoryById($id){
+    public function getCategoryByProductId($id){
         $sql="SELECT `category`.`name` FROM `category` LEFT JOIN `product_category` ON `category`.`id`= `product_category`.`category_id` WHERE `product_category`. `product_id`=:product_id";
         $data=array(
             'product_id'=>$id

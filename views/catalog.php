@@ -20,50 +20,12 @@
 										<!-- type furniture -->
 										<div class="filter-item-content">
 											<ul class="check-box">
+											<?php foreach($data['categories'] as $category): ?>
 												<li>
 													<input type="checkbox" name="furniture" id="kuty" class="input_checkbox">
-													<label for="kuty" class="input_label-checkbox">Кути&nbsp;<span class="filter-parameter">(+12)</span></label>
+													<label for="kuty" class="input_label-checkbox"><?=$category['name'] ?>&nbsp;<span class="filter-parameter">(<?=$category['count_products']?>)</span></label>
 												</li>
-												<li>
-													<input type="checkbox" name="furniture" id="dyvany" class="input_checkbox">
-													<label for="dyvany" class="input_label-checkbox">Дивани&nbsp;<span class="filter-parameter"></span></label>
-												</li>
-												<li>
-													<input type="checkbox" name="furniture" id="mjaki" class="input_checkbox">
-													<label for="mjaki" class="input_label-checkbox">М’які частини&nbsp;<span class="filter-parameter">(+5)</span></label>
-												</li>
-												<li>
-													<input type="checkbox" name="furniture" id="sofa" class="input_checkbox">
-													<label for="sofa" class="input_label-checkbox">Софа&nbsp;<span class="filter-parameter">(+23)</span></label>
-												</li>
-												<li>
-													<input type="checkbox" name="furniture" id="tahta" class="input_checkbox">
-													<label for="tahta" class="input_label-checkbox">Тахта&nbsp;<span class="filter-parameter">(+14)</span></label>
-												</li>
-												<li>
-													<input type="checkbox" name="furniture" id="krisla" class="input_checkbox">
-													<label for="krisla" class="input_label-checkbox">Крісла&nbsp;<span class="filter-parameter">(+6)</span></label>
-												</li>
-												<li>
-													<input type="checkbox" name="furniture" id="dytjachi" class="input_checkbox">
-													<label for="dytjachi" class="input_label-checkbox">Дитячі меблі&nbsp;<span class="filter-parameter">(+3)</span></label>
-												</li>
-												<li>
-													<input type="checkbox" name="furniture" id="kuhoni" class="input_checkbox">
-													<label for="kuhoni" class="input_label-checkbox">Кухонні кути&nbsp;<span class="filter-parameter">(+19)</span></label>
-												</li>
-												<li>
-													<input type="checkbox" name="furniture" id="lizka" class="input_checkbox">
-													<label for="lizka" class="input_label-checkbox">Ліжка&nbsp;<span class="filter-parameter">(+1)</span></label>
-												</li>
-												<li>
-													<input type="checkbox" name="furniture" id="materiales" class="input_checkbox">
-													<label for="materiales" class="input_label-checkbox">Матеріали&nbsp;<span class="filter-parameter">(+5)</span></label>
-												</li>
-												<li>
-													<input type="checkbox" name="furniture" id="znyzky" class="input_checkbox">
-													<label for="znyzky" class="input_label-checkbox">Знижки&nbsp;<span class="filter-parameter">(+9)</span></label>
-												</li>
+												<?php endforeach; ?>											
 											</ul>
 										</div>
 									</div>
@@ -177,7 +139,9 @@
 														<a href="product?id=<?=$product['product_id']?>" class="product-title-link"><?=$product['name']?></a>
 													</h3>
 													<!-- категорія товару  -->
-													<span class="product-category"><?=$product['categories'][0]['name']?></span>
+													<?php foreach($product['categories'] as $category): ?>
+													<span class="product-category"><?=$category?></span><br>
+													<?php endforeach; ?>
 												</div>
 												<div class="product-price">
 													<!-- <p class="product-price-sale">
