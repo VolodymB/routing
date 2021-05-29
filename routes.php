@@ -7,6 +7,8 @@ $routes=array(
     '/products'=>'product/index',
     '/product'=>'product/view',
     '/add_comment'=>'comment/add',
-    '/add_basket'=>'basket/add'
+    '/add_basket'=>'basket/add',
+    '/basket'=>'basket/index',
+    '/remove_basket'=>'basket/remove'
 );
 ?>

@@ -127,13 +127,18 @@ class Product extends Model{
 
 
         public function getProductByIdByUnit($product_id,$unit_id){
-            $sql="SELECT * FROM `product_unit` WHERE `quantity`>0 AND `product_id`=:product_id AND `unit_id`=:unit_id";
+            $sql="SELECT prod_un.`product_id`,prod_un.`unit_id`,
+            prod_un.`price`,prod_un.`quantity`,CONCAT(prod.`name`,', ' ,prod.`year`) as 'product_name',un.`name`  
+            FROM `product_unit` prod_un LEFT JOIN `product` prod ON prod_un.`product_id`=prod.`id` LEFT JOIN `unit` un 
+            ON prod_un.`unit_id`=un.`id` WHERE `product_id`=:product_id AND `unit_id`=:unit_id";
             $data=[
                 'product_id'=>$product_id,
                 'unit_id'=>$unit_id
-            ];
+            ];           
             $select=$this->db->prepare($sql);
-            return $select->execute($data);
+            $select->execute($data);
+            $array=$select->fetchAll();
+            return $array[0];
         }
 
 
