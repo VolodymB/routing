@@ -75,7 +75,7 @@
 										<span class="icon icon-add_shopping_cart"></span>
 										<span>Оформити замовлення</span>
 									</a>
-									<a href="#" class="bttn bttn_secondary">Продовжити покупки</a>
+									<a href="/products" class="bttn bttn_secondary">Продовжити покупки</a>
 								</div>
 							</div>
 

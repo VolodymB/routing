@@ -139,7 +139,7 @@
 							</a>
 						</li>
 						<li class="shopping-item">
-							<a href="#" class="shopping-link">
+							<a href="/basket" class="shopping-link">
 								<span class="icon icon-shopping_cart"></span>
 								<span class="shopping-counter">0</span>
 							</a>

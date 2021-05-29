@@ -110,7 +110,7 @@
 			<div class="navbar-shopping-wrap">
 				<ul class="navar-shopping-list">
 					<li class="navbar-shopping-item">
-						<a href="#" class="navbar-shopping-link">
+						<a href="/basket" class="navbar-shopping-link">
 							<span class="icon icon-favorite"></span>
 							<span class="shopping-counter is-added">19</span>
 						</a>
