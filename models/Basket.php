@@ -44,12 +44,17 @@ require_once 'Product.php';
             session_start(); 
             $products=array();
             $images=array();
+            
                 //array(4) { [15]=> array(1) { [2]=> int(1) } [16]=> array(1) { [2]=> int(1) } [13]=> array(1) { [2]=> int(1) } [7]=> array(1) { [5]=> int(1) } }    
             if(isset($_SESSION['basket']) && !empty($_SESSION['basket'])){
                 foreach($_SESSION['basket'] as $product_id=>$unit){
                     foreach($unit as $unit_id=>$quantity){
+                        $image='./web/img/default_image.jpg';                       
                         $product=new Product();
                         $product_info=$product->getProductByIdByUnit($product_id,$unit_id);
+                        if($product_images=$product->getProductImages($product_id)){                            
+                            $image=$product_images[0];
+                        }
                         //  [0]=> array(6) { ["product_id"]=> int(15) ["unit_id"]=> int(2) ["price"]=> float(250) ["quantity"]=> int(4) ["product_name"]=> string(22) "Білочунь, 2019" ["name"]=> string(8) "0,1 кг" 
                         if(!empty($product_info)){
                             $products[]=array(
@@ -61,11 +66,16 @@ require_once 'Product.php';
                                 'unit_name'=>$product_info['name'],
                                 'total_sum'=>$product_info['price']*$quantity,
                                 'link'=>'product?id='.$product_id,
-                                'link_remove'=>'remove_basket?product_id='.$product_id.'&unit_id='.$unit_id
+                                'link_remove'=>'remove_basket?product_id='.$product_id.'&unit_id='.$unit_id,
+                                'image'=>$image
                             );
-                        }
+                        }                        
                     }                    
                 }
+                // echo '<pre>';
+                // var_dump($products);
+                // echo '</pre>';
+                // die;
                 return $products;
             }  
             return false;              

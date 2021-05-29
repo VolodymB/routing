@@ -18,7 +18,7 @@
 									<figure class="product-item">
 										<div class="product-image">
 											<a href="<?=$product['link']?>" class="product-image-link">
-												<img src="img/item.jpg" alt="Диван «Карат»">
+												<img src="<?=$product['image']?>" alt="Диван «Карат»">
 											</a>
 										</div>
 										<figcaption class="product-text-wrap">
