@@ -25,8 +25,7 @@ class ProductController extends Controller{
         // var_dump( $data_page['categories']);
         // die;
         $data_page['products']=$this->model->getListProducts();    
-        $data_page['header']=$this->view->render('header');
-        $data_page['footer']=$this->view->render('footer');
+        
         return $this->view->render('catalog',$data_page);
     }
 
@@ -66,6 +65,14 @@ class ProductController extends Controller{
         }
         echo 'Не має потрібного товару';
        
+    }
+
+    public function filter(){
+        $filter=array();
+        if(isset($_GET['category']) && !empty($_GET['category'])){
+            $filter['category']=$_GET['category'];
+        }
+        var_dump($this->model->getFilterProduct($filter));
     }
 
 }

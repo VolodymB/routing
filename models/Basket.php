@@ -81,6 +81,29 @@ require_once 'Product.php';
             return false;              
         }
 
+        public static function totalCount(){
+            session_start();
+            $total_count=0;
+            if(isset($_SESSION['basket']) && !empty($_SESSION['basket'])){
+                $basket=$_SESSION['basket'];
+                // array(2) { 
+                //     [1]=> array(1) { 
+                //         [2]=> int(10) 
+                //     } 
+                //     [2]=> array(1) { 
+                //         [2]=> int(1) 
+                //     } 
+                // } int(0)
+                foreach($basket as $item){
+                    $total_count+=array_sum($item);
+                    // foreach($item as $quantity){
+                    //     $total_count+=$quantity;
+                    // }
+                }
+            }
+            return $total_count;
+        }
+
 
     }
 

@@ -115,6 +115,14 @@ class Product extends Model{
         return $products;
     }
 
+        public function getFilterProduct($filter=array()){
+            if(!empty($filter['category'])){
+                $value=implode(',',$filter['category']);//1,2,3
+                $sql="SELECT DISTINCT `product_id` FROM `product_category` WHERE `category_id` IN ($value)";
+                $this->db->query($sql);
+            }
+        }
+
     public function getCategoryByProductId($id){
         $sql="SELECT `category`.`name` FROM `category` LEFT JOIN `product_category` ON `category`.`id`= `product_category`.`category_id` WHERE `product_category`. `product_id`=:product_id";
         $data=array(

@@ -18,17 +18,22 @@
 											<p class="filter-item-title">Тип меблів</p>
 										</div>
 										<!-- type furniture -->
+										<form action="/filter" method='GET' id='filter_form'>
 										<div class="filter-item-content">
 											<ul class="check-box">
+											<?php $i=1; ?>
 											<?php foreach($data['categories'] as $category): ?>
 												<li>
-													<input type="checkbox" name="furniture" id="kuty" class="input_checkbox">
-													<label for="kuty" class="input_label-checkbox"><?=$category['name'] ?>&nbsp;<span class="filter-parameter">(<?=$category['count_products']?>)</span></label>
+													<input type="checkbox" name="category[]" value='<?=$category['category_id']?>' id="category<?=$i ?>" class="input_checkbox">
+													<label for="category<?=$i ?>" class="input_label-checkbox"><?=$category['name'] ?>&nbsp;<span class="filter-parameter">(<?=$category['count_products']?>)</span></label>
 												</li>
+												<?php $i++; ?>
 												<?php endforeach; ?>											
 											</ul>
 										</div>
+										</form>										
 									</div>
+									<button type='submit' class='bttn' form='filter_form'>Фільтр</button>
 									<!-- filter item -->
 									<!-- <div class="filter-item">
 										<div class="filter-item-head">

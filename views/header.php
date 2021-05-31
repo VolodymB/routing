@@ -81,7 +81,7 @@
 							<a href="#" class="menu-nav-link">Виробництво</a>
 						</li>
 						<li class="menu-nav-item is-active">
-							<a href="#" class="menu-nav-link">Товари</a>
+							<a href="/products" class="menu-nav-link">Товари</a>
 							<ul class="menu-nav-list_sub">
 								<li class="menu-nav-item_sub">
 									<a href="#" class="menu-nav-link_sub">Кути</a>
@@ -141,7 +141,7 @@
 						<li class="shopping-item">
 							<a href="/basket" class="shopping-link">
 								<span class="icon icon-shopping_cart"></span>
-								<span class="shopping-counter">0</span>
+								<span class="shopping-counter"><?=$data['total_count']?></span>
 							</a>
 						</li>
 					</ul>
