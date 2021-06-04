@@ -1,5 +1,6 @@
 <?php
 require_once './models/Basket.php';
+require_once './models/Category.php';
 
 class View{
 
@@ -20,6 +21,9 @@ class View{
         $data_header=array();
 
         $data_header['total_count']=Basket::totalCount();
+        $category=new Category();
+        $data_header['menu']=$category->getMenu();
+        // [0]=> array(4) { ["id"]=> int(1) ["name"]=> string(6) "Чай" ["parent_id"]=> NULL ["sort_order"]=> int(1)
         $this->data['header']=$this->renderPart('header',$data_header);
         $this->data['footer']=$this->renderPart('footer');
 

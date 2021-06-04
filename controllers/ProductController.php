@@ -20,11 +20,14 @@ class ProductController extends Controller{
     // функція для формування і відображення головної сторінки product
     public function index(){
         $data_page=array();
+        $data_page['category_active']=array();
+        
         $category=new Category();
         $data_page['categories']=$category->getListCategory();
         // var_dump( $data_page['categories']);
         // die;
-        $data_page['products']=$this->model->getListProducts();    
+        $data_page['products']=$this->model->getListProducts();
+            
         
         return $this->view->render('catalog',$data_page);
     }
@@ -68,11 +71,54 @@ class ProductController extends Controller{
     }
 
     public function filter(){
-        $filter=array();
-        if(isset($_GET['category']) && !empty($_GET['category'])){
-            $filter['category']=$_GET['category'];
+        $filter = array();
+        $data_page['category_active']=array();
+
+        if(isset($_GET['category']) && !empty($_GET['category'])){            
+            $filter['category'] = $_GET['category'];
+            if(is_array($filter['category'])){
+              $data_page['category_active']=$filter['category'];  
+            }else{
+                //додавання нового елементу масиву
+                $data_page['category_active'][]=$filter['category'];
+            }
+            
+            $data_page['products'] = $this->model->getFilterProduct($filter);
+            
+            // array(6) {
+            //     ["product_id"]=>
+            //     int(1)
+            //     ["name"]=>
+            //     string(15) "Дянь Хун"
+            //     ["year"]=>
+            //     int(2020)
+            //     ["price"]=>
+            //     float(350)
+            //     ["categories"]=>
+            //     array(3) {
+            //       [0]=>
+            //       string(23) "Червоний чай"
+            //       [1]=>
+            //       string(18) "Фасований"
+            //       [2]=>
+            //       string(18) "Розсипний"
+            //     }
+            //     ["image"]=>
+            //     string(27) "./web/img/default_image.jpg"
+
+            // echo '<pre>';
+            // var_dump($data_page['products']);
+            // echo '</pre>';
+            // die;
+        } else {
+           $data_page['products']=$this->model->getListProducts();   
         }
-        var_dump($this->model->getFilterProduct($filter));
+
+        $category=new Category();
+        $data_page['categories']=$category->getListCategory();
+
+        return $this->view->render('catalog',$data_page);
+        
     }
 
 }

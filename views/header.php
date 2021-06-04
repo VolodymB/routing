@@ -83,39 +83,11 @@
 						<li class="menu-nav-item is-active">
 							<a href="/products" class="menu-nav-link">Товари</a>
 							<ul class="menu-nav-list_sub">
+								<?php foreach($data['menu'] as $item_menu): ?>
 								<li class="menu-nav-item_sub">
-									<a href="#" class="menu-nav-link_sub">Кути</a>
+									<a href="/filter?category=<?=$item_menu['id']?>" class="menu-nav-link_sub"><?=$item_menu['name']?></a>
 								</li>
-								<li class="menu-nav-item_sub">
-									<a href="#" class="menu-nav-link_sub">Дивани</a>
-								</li>
-								<li class="menu-nav-item_sub">
-									<a href="#" class="menu-nav-link_sub">М’які частини</a>
-								</li>
-								<li class="menu-nav-item_sub">
-									<a href="#" class="menu-nav-link_sub">Софа</a>
-								</li>
-								<li class="menu-nav-item_sub">
-									<a href="#" class="menu-nav-link_sub">Тахта</a>
-								</li>
-								<li class="menu-nav-item_sub">
-									<a href="#" class="menu-nav-link_sub">Крісла</a>
-								</li>
-								<li class="menu-nav-item_sub">
-									<a href="#" class="menu-nav-link_sub">Дитячі меблі</a>
-								</li>
-								<li class="menu-nav-item_sub">
-									<a href="#" class="menu-nav-link_sub">Кухонні кути</a>
-								</li>
-								<li class="menu-nav-item_sub">
-									<a href="#" class="menu-nav-link_sub">Ліжка</a>
-								</li>
-								<li class="menu-nav-item_sub">
-									<a href="#" class="menu-nav-link_sub">Матеріали</a>
-								</li>
-								<li class="menu-nav-item_sub menu-nav-item_sub--sales">
-									<a href="#" class="menu-nav-link_sub">Знижки</a>
-								</li>
+								<?php endforeach;  ?>								
 							</ul>
 						</li>
 						<li class="menu-nav-item">

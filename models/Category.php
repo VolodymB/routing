@@ -27,5 +27,11 @@ class Category extends Model{
         $select->execute($data);
         return $select->fetchAll();
     }
+
+    public function getMenu(){
+        $sql='SELECT * FROM `category` WHERE `parent_id` IS NULL OR `parent_id`=1';
+        $select=$this->db->query($sql);
+        return $select->fetchAll();
+    }
 }
 ?>

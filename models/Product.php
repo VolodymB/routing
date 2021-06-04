@@ -59,13 +59,21 @@ class Product extends Model{
      * мінімальна ціна
      * категорія
      */
-    public function getListProducts(){
-        $products=array();
+    public function getProductItem($product_id){
         $images=array();
         
 
-        $sql="SELECT `product`.`name`,`product`.`year`,`product_id`, MIN(`price`) as 'price' FROM `product_unit` LEFT JOIN `product` ON `product_id`=`product`.`id` GROUP BY `product_id`";
-        foreach($this->db->query($sql) as $product){
+        $sql="SELECT `product`.`name`,`product`.`year`,`product_id`, MIN(`price`) as 'price' FROM `product_unit` LEFT JOIN `product` ON `product_id`=`product`.`id` WHERE `product_unit`.`product_id`=:product_id GROUP BY `product_id`";
+        $data=array(
+            'product_id'=>$product_id
+        );
+        $select=$this->db->prepare($sql);
+        $select->execute($data);
+        $product=$select->fetchAll();
+        // echo '<pre>';
+        // var_dump($product);
+        // echo '</pre>';
+        // die;
             $product_info=array();
             $categories=array();
             $image='./web/img/default_image.jpg';
@@ -74,7 +82,7 @@ class Product extends Model{
              *  дістати категорії товару
              * getCategoryById(id)
              * */   
-            if($product_categories=$this->getCategoryByProductId($product['product_id'])){
+            if($product_categories=$this->getCategoryByProductId($product_id)){
                 
                 foreach($product_categories as $category){
                     $categories[]=$category['name'];
@@ -86,7 +94,7 @@ class Product extends Model{
                     /** якось знайти і підключити зображення
                      * getProductImages($product_id)
                      * додати в масив $product */    
-            if($product_images=$this->getProductImages($product['product_id'])){
+            if($product_images=$this->getProductImages($product_id)){
                 // foreach($product_images as $image){
                     // echo '<pre>';
                     // var_dump($image); 
@@ -99,28 +107,64 @@ class Product extends Model{
              * getProductImages($product_id)
              * додати в масив $product */  
             $product_info=array(
-                'product_id'=>$product['product_id'],
-                'name'=>$product['name'],
-                'year'=>$product['year'],
-                'price'=>$product['price'],
+                'product_id'=>$product_id,
+                'name'=>$product[0]['name'],
+                'year'=>$product[0]['year'],
+                'price'=>$product[0]['price'],
                 'categories'=>$categories,
                 'image'=>$image
             );
-            $products[]=$product_info;        
-        }
+                   
+        
         // echo '<pre>';
-        // var_dump($products); 
+        // var_dump($product_info); 
         // echo '</pre>';
         // die;
-        return $products;
+        return $product_info;
     }
 
-        public function getFilterProduct($filter=array()){
-            if(!empty($filter['category'])){
-                $value=implode(',',$filter['category']);//1,2,3
-                $sql="SELECT DISTINCT `product_id` FROM `product_category` WHERE `category_id` IN ($value)";
-                $this->db->query($sql);
+        public function getListProducts(){
+            $products=array();
+
+            $sql="SELECT DISTINCT(`product_id`) FROM `product_unit` ";
+            foreach($this->db->query($sql) as $product){
+                $products[]=$this->getProductItem($product['product_id']);
             }
+
+            return $products;
+        }
+
+        public function getFilterProduct($filter=array()){
+            
+            $product=array();
+
+            $sql = "SELECT DISTINCT (`product_category`.`product_id`), `product`.`name`,`product`.`year`, MIN(`price`) as 'price' FROM `product_unit` LEFT JOIN `product` ON `product_id`=`product`.`id` LEFT JOIN `product_category` ON `product`.`id` = `product_category`.`product_id`";
+
+        if(isset($filter['category']) && !empty($filter['category'])){
+            if(is_array($filter['category'])){
+                $sql .= "WHERE `category_id` IN (".implode(',', $filter['category']).")";
+            }else{
+                $sql .= "WHERE `category_id`=".$filter['category'];
+            }
+            
+        }
+
+        $sql .= " GROUP BY `product_id`";
+
+        if(isset($filter['sort']) && !empty($filter['sort'])){
+            $sql .= " ORDER BY ...";
+        }
+
+        foreach($this->db->query($sql) as $product){          
+            $products[]=$this->getProductItem($product['product_id']);        
+        }
+
+        return $products;
+            // if(!empty($filter['category'])){
+            //     $value=implode(',',$filter['category']);//1,2,3
+            //     $sql="SELECT DISTINCT `product_id` FROM `product_category` WHERE `category_id` IN ($value)";
+            //     $this->db->query($sql);
+            // }
         }
 
     public function getCategoryByProductId($id){
