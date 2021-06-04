@@ -2,7 +2,7 @@
 class Category extends Model{
     public function getListCategory(){
         $categories=array();
-        $sql="SELECT `product_category`.`category_id`,`category`.`name`,COUNT(`product_id`) AS 'count_products' ,`category`.`parent_id`  FROM `product_category` LEFT JOIN `category` ON `product_category`.`category_id`=`category`.`id` GROUP BY `category_id` ORDER BY `category`.`sort_order`";
+        $sql="SELECT `product_category`.`category_id`,`category`.`name`,COUNT(`product_category`.`product_id`) AS 'count_products' ,`category`.`parent_id` FROM `product_category` LEFT JOIN `category` ON `product_category`.`category_id`=`category`.`id` INNER JOIN `product_unit` ON `product_category`.`product_id`=`product_unit`.`product_id` GROUP BY `category_id` ORDER BY `category`.`sort_order`";
         // foreach($this->db->query($sql) as $category){
         //     /** getProductsByCategoryId куди передається $category['id']
         //      * масив products з товарами по кожній категорії

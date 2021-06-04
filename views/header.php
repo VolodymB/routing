@@ -85,7 +85,7 @@
 							<ul class="menu-nav-list_sub">
 								<?php foreach($data['menu'] as $item_menu): ?>
 								<li class="menu-nav-item_sub">
-									<a href="/filter?category=<?=$item_menu['id']?>" class="menu-nav-link_sub"><?=$item_menu['name']?></a>
+									<a href="/products?category=<?=$item_menu['id']?>" class="menu-nav-link_sub"><?=$item_menu['name']?></a>
 								</li>
 								<?php endforeach;  ?>								
 							</ul>

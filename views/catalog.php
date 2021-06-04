@@ -18,7 +18,7 @@
 											<p class="filter-item-title">Тип меблів</p>
 										</div>
 										<!-- type furniture -->
-										<form action="/filter" method='GET' id='filter_form'>
+										<form action="/products" method='GET' id='filter_form'>
 										<div class="filter-item-content">
 											<ul class="check-box">
 											<?php $i=1; ?>
@@ -129,6 +129,7 @@
 							</div>
 							<div class="product-list-wrap">
 								<div class="row">
+									<?php if(!empty($data['products'])): ?>
                                     <?php foreach($data['products'] as $product): ?>
 									<!-- product item -->
 									<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
@@ -170,6 +171,9 @@
 										</figure>
 									</div>
                                         <?php endforeach; ?>
+										<?php else: ?>
+										<p>Не має товару</p>
+										<?php endif; ?>
 									
 
 

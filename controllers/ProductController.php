@@ -19,17 +19,28 @@ class ProductController extends Controller{
 
     // функція для формування і відображення головної сторінки product
     public function index(){
-        $data_page=array();
-        $data_page['category_active']=array();
-        
+        $data_page=array();//1
+        $filter=array();//1
+        $data_page['category_active']=array();//1
+
         $category=new Category();
-        $data_page['categories']=$category->getListCategory();
-        // var_dump( $data_page['categories']);
-        // die;
-        $data_page['products']=$this->model->getListProducts();
-            
-        
-        return $this->view->render('catalog',$data_page);
+        $data_page['categories']=$category->getListCategory();//1
+        if(isset($_GET['category']) && !empty($_GET['category'])){            
+            $filter['category'] = $_GET['category'];
+            if(is_array($filter['category'])){
+              $data_page['category_active']=$filter['category'];  
+            }else{
+                //додавання нового елементу масиву
+                $data_page['category_active'][]=$filter['category'];
+            }
+            $data_page['products'] = $this->model->getFilterProduct($filter);
+        }else{
+            $data_page['products']=$this->model->getListProducts();//1
+        }
+        // var_dump( $data_page['products']);
+        // die;      
+                    
+        return $this->view->render('catalog',$data_page);//1
     }
 
     // функція для формування відображення товару і його зображення
@@ -70,56 +81,57 @@ class ProductController extends Controller{
        
     }
 
-    public function filter(){
-        $filter = array();
-        $data_page['category_active']=array();
+    // public function filter(){
+    //     $data_page=array()//1
+    //     $filter = array();//1
+    //     $data_page['category_active']=array();//1
 
-        if(isset($_GET['category']) && !empty($_GET['category'])){            
-            $filter['category'] = $_GET['category'];
-            if(is_array($filter['category'])){
-              $data_page['category_active']=$filter['category'];  
-            }else{
-                //додавання нового елементу масиву
-                $data_page['category_active'][]=$filter['category'];
-            }
+    //     if(isset($_GET['category']) && !empty($_GET['category'])){            
+    //         $filter['category'] = $_GET['category'];
+    //         if(is_array($filter['category'])){
+    //           $data_page['category_active']=$filter['category'];  
+    //         }else{
+    //             //додавання нового елементу масиву
+    //             $data_page['category_active'][]=$filter['category'];
+    //         }
             
-            $data_page['products'] = $this->model->getFilterProduct($filter);
+    //         $data_page['products'] = $this->model->getFilterProduct($filter);
             
-            // array(6) {
-            //     ["product_id"]=>
-            //     int(1)
-            //     ["name"]=>
-            //     string(15) "Дянь Хун"
-            //     ["year"]=>
-            //     int(2020)
-            //     ["price"]=>
-            //     float(350)
-            //     ["categories"]=>
-            //     array(3) {
-            //       [0]=>
-            //       string(23) "Червоний чай"
-            //       [1]=>
-            //       string(18) "Фасований"
-            //       [2]=>
-            //       string(18) "Розсипний"
-            //     }
-            //     ["image"]=>
-            //     string(27) "./web/img/default_image.jpg"
+    //         // array(6) {
+    //         //     ["product_id"]=>
+    //         //     int(1)
+    //         //     ["name"]=>
+    //         //     string(15) "Дянь Хун"
+    //         //     ["year"]=>
+    //         //     int(2020)
+    //         //     ["price"]=>
+    //         //     float(350)
+    //         //     ["categories"]=>
+    //         //     array(3) {
+    //         //       [0]=>
+    //         //       string(23) "Червоний чай"
+    //         //       [1]=>
+    //         //       string(18) "Фасований"
+    //         //       [2]=>
+    //         //       string(18) "Розсипний"
+    //         //     }
+    //         //     ["image"]=>
+    //         //     string(27) "./web/img/default_image.jpg"
 
-            // echo '<pre>';
-            // var_dump($data_page['products']);
-            // echo '</pre>';
-            // die;
-        } else {
-           $data_page['products']=$this->model->getListProducts();   
-        }
+    //         // echo '<pre>';
+    //         // var_dump($data_page['products']);
+    //         // echo '</pre>';
+    //         // die;
+    //     } else {
+    //        $data_page['products']=$this->model->getListProducts();//   
+    //     }
 
-        $category=new Category();
-        $data_page['categories']=$category->getListCategory();
+    //     $category=new Category();//1
+    //     $data_page['categories']=$category->getListCategory();//1
 
-        return $this->view->render('catalog',$data_page);
+    //     return $this->view->render('catalog',$data_page);//
         
-    }
+    // }
 
 }
 ?>
