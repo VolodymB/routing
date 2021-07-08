@@ -95,6 +95,10 @@
 							<!-- title -->
 							<div class="title-wrap">
 								<h1 class="title title_main">Дивани</h1>
+								<?php session_start() ?>
+								<?php if(isset($_SESSION['user_id'])): ?>
+								<a href="/user_main?>" class="bttn">В кабінет</a>
+								<?php  endif; ?>
 							</div>
 							<!-- product-list -->
 							<div class="product-sort-wrap">

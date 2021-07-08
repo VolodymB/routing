@@ -1,5 +1,7 @@
 <?php
 require_once 'config/config.php';
+
+
 Route::start();
 
 // $uri=$_SERVER['REQUEST_URI'];

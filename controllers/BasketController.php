@@ -1,6 +1,8 @@
 <?php
-require_once './models/Basket.php';
+
 require_once './models/Product.php';
+require_once './models/Customer.php';
+require_once './models/User.php';
 
 class BasketController{
 
@@ -25,6 +27,7 @@ class BasketController{
         if($product->getProductByIdByUnit($product_id,$unit_id)){
             $this->model->add($product_id,$unit_id);
             header("location:basket");
+
             // $products=$this->model->products();
             // var_dump($products);
             // die;        
@@ -33,9 +36,19 @@ class BasketController{
     }
 
     public function index(){
+        session_start();
+        
         $data_page=array();
         $data_header=array();
         // [0]=> array(7) { ["product_id"]=> int(15) ["unit_id"]=> int(2) ["price"]=> float(250) ["quantity"]=> int(1) ["product_name"]=> string(22) "Білочунь, 2019" ["unit_name"]=> string(8) "0,1 кг" ["total_sum"]=> float(250) 
+            if(isset($_SESSION['user_id'])){
+               $data_page['user_id']=$_SESSION['user_id'];
+                $user=new User();
+                $data_page['user_info']=$user->findOne($_SESSION['user_id']);
+                // var_dump($data_page['user_info']);
+                // die;
+            }
+            
             $data_header['total_count']=$this->model->totalCount();
             $data_page['products']=$this->model->products();
         if($data_page['products']){
@@ -44,8 +57,29 @@ class BasketController{
         }
     }
         $data_page['total']=$total_sum;
-        // var_dump($data_page['products']);
-        // die;
+
+        // if(!empty($data_page['products'])){
+
+        //     echo '<pre>';
+        //     var_dump($data_page['products']);
+        //     echo '</pre>';
+        //     die;
+        // }
+
+        
+
+;
+        
+
+        $customer=new Customer();
+        $data_page['delivery']=$customer->getListDelivery();
+
+        $data_page['payment']=$customer->getListPayment();
+        
+        $data_page['city']=$customer->getListCity();
+
+        
+       
        
         return $this->view->render('basket',$data_page);
     }
@@ -55,6 +89,9 @@ class BasketController{
        header('Location:basket');
     }
 
+
+
+    
     
 
 }

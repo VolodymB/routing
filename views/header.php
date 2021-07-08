@@ -78,9 +78,9 @@
 							<a href="#" class="menu-nav-link">Про нас</a>
 						</li>
 						<li class="menu-nav-item">
-							<a href="#" class="menu-nav-link">Виробництво</a>
+							<a href="/user_log_in" class="menu-nav-link" >Авторизація</a>
 						</li>
-						<li class="menu-nav-item is-active">
+						<li class="menu-nav-item ">
 							<a href="/products" class="menu-nav-link">Товари</a>
 							<ul class="menu-nav-list_sub">
 								<?php foreach($data['menu'] as $item_menu): ?>

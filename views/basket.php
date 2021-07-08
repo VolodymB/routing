@@ -74,24 +74,49 @@
 									<a href="javascript:void(0);" class="bttn bttn_order-add">
 										<span class="icon icon-add_shopping_cart"></span>
 										<span>Оформити замовлення</span>
-									</a>
+									</a>									
 									<a href="/products" class="bttn bttn_secondary">Продовжити покупки</a>
 								</div>
 							</div>
 
 							<!-- order form -->
 							<div class="popup-modal order-form">
-								<form id="order" class="form">
+								<form id="order" class="form" method='POST' action='/add_order'>
 									<h3 class="title title_modal-small">Оформлення замовлення</h3>
 									<div class="form-group-wrap">
 
+										<input type="hidden" name='user_id' value="<?=(isset($data['user_id']))?$data['user_id']:''?>">
+										
 										<div class="form-item">
-											<input type="text" name="order_name" class="input_modal" maxlength="30" tabindex="0" required>
+										<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name='delivery'>
+											<?php foreach($data['delivery'] as $item_delivery): ?>
+											<option value="<?=$item_delivery['id']?>"><?=$item_delivery['name']?>
+											</option>
+											<?php endforeach; ?>
+											</select>
+										</div>
+
+										<div class="form-item">
+										<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name='payment'>
+											<?php foreach($data['payment'] as $item_payment): ?>
+											<option value="<?=$item_payment['id']?>"><?=$item_payment['name']?>
+											</option>
+											<?php endforeach; ?>
+											</select>
+										</div>
+
+										<div class="form-item">
+											<input type="text" name="order_name" class="input_modal" maxlength="30" tabindex="0" required value="<?=(isset($data['user_info']['name']))?$data['user_info']['name']:''?>">
 											<label class="input_label-modal">Ваше ім’я</label>
+										</div>
+
+										<div class="form-item">
+											<input type="text" name="order_surname" class="input_modal" maxlength="30" tabindex="0" required value="<?=(isset($data['user_info']['surname']))?$data['user_info']['surname']:''?>">
+											<label class="input_label-modal">Фамілія</label>
 										</div>
 								
 										<div class="form-item">
-											<input type="email" name="order_email" class="input_modal" maxlength="40" required>
+											<input type="email" name="order_email" class="input_modal" maxlength="40" required value="<?=(isset($data['user_info']['email']))?$data['user_info']['email']:''?>">
 											<label class="input_label-modal">E-mail</label>
 										</div>
 
@@ -103,30 +128,28 @@
 
 
 										<div class="form-item">
-											<input type="text" name="order_city" class="input_modal" maxlength="30" required>
-											<label class="input_label-modal">Місто</label>
+										<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name='city'>
+											<?php foreach($data['city'] as $city): ?>
+											<option value="<?=$city['id']?>"><?=$city['name']?>
+											</option>
+											<?php endforeach; ?>
+											</select>
 										</div>
 
 										<div class="row">
 											<div class="col-md-7 col-sm-7">
 												<div class="form-item">
-													<input type="text" name="order_street" class="input_modal" maxlength="30" required>
-													<label class="input_label-modal">Вулиця</label>
+													<input type="text" name="order_street" class="input_modal" maxlength="40" required>
+													<label class="input_label-modal">Адреса</label>
 												</div>
 											</div>
-											<div class="col-md-5 col-sm-5">
-												<div class="form-item">
-													<input type="text" name="order_apartments" class="input_modal" maxlength="10" required>
-													<label class="input_label-modal">Будинок</label>
-												</div>
-											</div>
+											
 										</div>
 									</div>
 
-									<div class="form-item form-item_send">
-										<input type="submit" name="coment_btn" value="Замовити" class="bttn bttn_send">
-									</div>
-
+									<!-- <div class="form-item form-item_send"> -->
+										<input type="submit" name="save" value="Замовити" class="bttn bttn_send">
+									<!-- </div> -->
 								</form>
 							</div>
 
@@ -146,7 +169,7 @@
 							<img src="img/ic_done.svg" alt="Ваша покупка пройшла успішно">
 						</div>
 						<p class="empty-state-text">Ваша покупка пройшла успішно</p>
-						<a href="#" class="bttn">Головна сторінка</a>
+						<a href="/products" class="bttn">Головна сторінка</a>
 					</div>
 				</main>
 			</div>
