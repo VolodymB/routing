@@ -54,19 +54,20 @@ class OrderController extends Controller{
                                     if(isset($unit_id)){
                                         $order_info['unit_id']=$unit_id;
                                         if(isset($quantity)){
-                                            $order_info['quantity']=$quantity;
-                                             $product=new Product();
-                                             $order_info['price']=$product->getPriceByProductIdUnitId($product_id,$unit_id);
-                                             if(isset($order_info['price'])){
-                                                 
-                                                 $order=new Order();
-                                                 $order->saveOrder($order_info);
-                                                 
-                                                 echo '<pre>';
-                                            var_dump($order);
-                                            echo '</pre>';
-                                                die;
-                                             }
+                                            $product=new Product();
+                                            $quantity_total=$product->getQuantityByProductIdUnitId($product_id,$unit_id);
+                                            //перевірка чи є в наявності на складі
+                                            if($quantity<=$quantity_total){
+                                                    $order_info['quantity']=$quantity;                                             
+                                                    $order_info['price']=$product->getPriceByProductIdUnitId($product_id,$unit_id);
+                                                    if(isset($order_info['price'])){                                                 
+                                                        $order=new Order();
+                                                        if($order->saveOrder($order_info)){
+                                                            header("Location:/user_main");
+                                                        }           
+                                                    }
+                                            }
+                                            
                                             // як дістати ціну?
                                             
                                         }
