@@ -193,6 +193,19 @@ class Product extends Model{
             return $array[0];
         }
 
+        public function getPriceByProductIdUnitId($product_id,$unit_id){
+            $sql="SELECT `price` FROM `product_unit` WHERE `product_id`=:product_id AND `unit_id`=:unit_id";
+            $data=array(
+                'product_id'=>$product_id,
+                'unit_id'=>$unit_id
+            );
+            $select=$this->db->prepare($sql);
+            $select->execute($data);
+            $result=$select->fetchColumn();
+            return $result;
+
+        }
+
 
     
 

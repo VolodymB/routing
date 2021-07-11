@@ -54,5 +54,21 @@ class Order extends Model{
         return true;
     }
 
+public function saveOrder($data){
+        // array(5) { ["order_id"]=> string(2) "23" ["product_id"]=> int(2) ["unit_id"]=> int(2) ["quantity"]=> int(1) ["price"]=> float(300) }
+        $sql="INSERT INTO `product_order`(`order_id`, `product_id`, `price`, `quantity`, `unit_id`) VALUES (:order_id,:product_id,:price,:quantity,:unit_id)";
+        $array=array(
+        'order_id'=>$data['order_id'],
+        'product_id'=>$data['product_id'],
+        'quantity'=>$data['quantity'],
+        'price'=>$data['price'],
+        'unit_id'=>$data['unit_id']
+        );
+        $select=$this->db->prepare($sql);
+        if($select->execute($array)){
+            return true;
+        }
+    }
+
 }
 ?>

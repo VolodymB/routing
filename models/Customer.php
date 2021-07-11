@@ -48,9 +48,7 @@ class Customer extends Model{
                 if($select->execute($array)){                
                  $custom_id=$this->db->lastInsertId();   
                  return $custom_id;                              
-                }
-
-                
+                }                
             }
         }
         // array(8) { ["delivery"]=> string(1) "2" ["order_name"]=> string(7) "dfffhhg" ["order_surname"]=> string(12) "dddddddddddd" ["order_email"]=> string(12) "fsfdhh@fhgfh" ["order_phone"]=> string(10) "3343543643" ["city"]=> string(1) "1" ["order_street"]=> string(7) "dfhhfhf" ["coment_btn"]=> string(16) "Замовити" }
@@ -63,7 +61,7 @@ class Customer extends Model{
             if(isset($data['user_id']) && !empty($data['user_id'])){
                 $this->user_id=$data['user_id'];
             }else{
-                $this->user_id=0;
+                $this->user_id=20;
             }           
             if(isset($data['order_name']) && !empty($data['order_name'])){
                 $this->name=$data['order_name'];

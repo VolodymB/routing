@@ -1,6 +1,7 @@
 <?php
 require_once "./models/Order.php";
 require_once './models/Customer.php';
+require_once './models/Product.php';
 
 class OrderController extends Controller{
 
@@ -42,17 +43,36 @@ class OrderController extends Controller{
             $custom_id=$customer->save($_POST);
                 if($custom_id){                    
                     $order=new Order();
-                    $order_id=$order->create($_POST,$custom_id);
-                    if($order_id){
+                    $order_info=array();
+                    $order_info['order_id']=$order->create($_POST,$custom_id);
+                    if($order_info['order_id']){                        
                         // зберігання в таблицю product_order
-                        $basket_info=array();
                         foreach($_SESSION['basket'] as $product_id=>$units){ 
                             foreach($units as $unit_id=>$quantity){
-                                // як дістати ціну?
-                                echo '<pre>';
-                                var_dump($unit_id);
-                                echo '</pre>';
-                                    die;
+                                if(isset($product_id)){                                    
+                                    $order_info['product_id']=$product_id;
+                                    if(isset($unit_id)){
+                                        $order_info['unit_id']=$unit_id;
+                                        if(isset($quantity)){
+                                            $order_info['quantity']=$quantity;
+                                             $product=new Product();
+                                             $order_info['price']=$product->getPriceByProductIdUnitId($product_id,$unit_id);
+                                             if(isset($order_info['price'])){
+                                                 
+                                                 $order=new Order();
+                                                 $order->saveOrder($order_info);
+                                                 
+                                                 echo '<pre>';
+                                            var_dump($order);
+                                            echo '</pre>';
+                                                die;
+                                             }
+                                            // як дістати ціну?
+                                            
+                                        }
+                                    }
+                                }
+                               
                             }                              
                             
                         }
